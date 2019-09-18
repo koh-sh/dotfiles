@@ -40,6 +40,7 @@ alias vagrant='(){ cd ~/vag_test;vagrant $@;cd $OLDPWD }'
 alias cloudmonkey='cmk'
 alias kscook='bundle exec knife solo cook'
 alias ksclean='bundle exec knife solo clean'
+alias cat='ccat'
 
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
