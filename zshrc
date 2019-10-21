@@ -41,6 +41,7 @@ alias cloudmonkey='cmk'
 alias kscook='bundle exec knife solo cook'
 alias ksclean='bundle exec knife solo clean'
 alias cat='ccat'
+alias mecab='mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd'
 
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
