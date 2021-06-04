@@ -1,4 +1,3 @@
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -40,7 +39,7 @@ alias vagrant='(){ cd ~/vag_test;vagrant $@;cd $OLDPWD }'
 alias cloudmonkey='cmk'
 alias kscook='bundle exec knife solo cook'
 alias ksclean='bundle exec knife solo clean'
-alias cat='ccat'
+#alias cat='ccat'
 alias mecab='mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd'
 
 if which pbcopy >/dev/null 2>&1 ; then
@@ -80,13 +79,24 @@ export EDITOR=vim
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-alias less='less -R'
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+#export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+#alias less='less -R'
+#export GOROOT=/usr/local/opt/go/libexec
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=/opt/homebrew/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
+  autoload -Uz compinit
+  compinit
+fi
+xonsh
