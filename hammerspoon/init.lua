@@ -11,12 +11,6 @@ local function remapKey(modifiers, key, keyCode)
    hs.hotkey.bind(modifiers, key, keyCode, nil, keyCode)
 end
 
-local function enableAllHotkeys()
-   for k, v in pairs(hs.hotkey.getHotkeys()) do
-      v['_hk']:enable()
-   end
-end
-
 remapKey({'ctrl'}, 'h', keyCode('left'))
 remapKey({'ctrl'}, 'j', keyCode('down'))
 remapKey({'ctrl'}, 'k', keyCode('up'))
@@ -36,7 +30,6 @@ remapKey({'ctrl', 'shift', 'cmd'}, 'l', keyCode('right', {'shift', 'cmd'}))
 remapKey({"ctrl"}, "f", keyCode("delete"))
 
 local prevKeyCode
-local escape = 0x35
 local leftCommand = 0x37
 local rightCommand = 0x36
 local eisuu = 0x66
@@ -46,7 +39,7 @@ local function keyStroke(modifiers, character)
     hs.eventtap.keyStroke(modifiers, character)
 end
 
-local function handleEvent(e)
+function HandleEvent(e)
     local keyCode = e:getKeyCode()
     local isCmdKeyUp = not(e:getFlags()['cmd']) and e:getType() == hs.eventtap.event.types.flagsChanged
     if isCmdKeyUp and prevKeyCode == leftCommand then
@@ -57,6 +50,6 @@ local function handleEvent(e)
     prevKeyCode = keyCode
 end
 
-eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
-eventtap:start()
+Eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, HandleEvent)
+Eventtap:start()
 
