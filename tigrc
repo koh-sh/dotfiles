@@ -1,2 +1,13 @@
+# options
+set mouse = true
+set refresh-mode = auto
 set split-view-height = 80%
 
+# key bind
+bind main S ?git switch -c "%(prompt Enter new branch name: )"
+bind main g move-first-line
+bind main G move-last-line
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic p ?git pull
+bind generic P ?git push origin %(branch)
