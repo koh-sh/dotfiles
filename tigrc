@@ -1,5 +1,4 @@
 # options
-set mouse = true
 set refresh-mode = auto
 set split-view-height = 80%
 
