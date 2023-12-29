@@ -1,0 +1,6 @@
+[tools]
+terraform = 'latest'
+node = 'latest'
+python = 'latest'
+ruby = 'latest'
+go = 'latest'

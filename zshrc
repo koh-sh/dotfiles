@@ -79,22 +79,7 @@ export EDITOR=vim
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-#export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
-#alias less='less -R'
 export PATH=/opt/homebrew/bin:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
-export GOROOT=$(go env GOROOT)
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-eval "$(pyenv init --path)"
-eval "$(nodenv init -)"
-eval "$(rbenv init -)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -104,3 +89,4 @@ if type brew &>/dev/null; then
 fi
 
 bindkey -e
+eval "$(rtx activate zsh)"
