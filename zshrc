@@ -40,7 +40,6 @@ alias cloudmonkey='cmk'
 alias kscook='bundle exec knife solo cook'
 alias ksclean='bundle exec knife solo clean'
 alias cat='ccat'
-alias mecab='mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd'
 
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
@@ -74,6 +73,7 @@ function _update_vcs_info_msg() {
 
 add-zsh-hook precmd _update_vcs_info_msg
 bindkey '^R' history-incremental-pattern-search-backward
+bindkey -e
 export LANG=C
 export EDITOR=vim
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
@@ -88,5 +88,8 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-bindkey -e
+# credentials
+if [ -r ~/.cred ]; then 
+  source ~/.cred
+fi
 eval "$(rtx activate zsh)"
