@@ -92,4 +92,4 @@ fi
 if [ -r ~/.cred ]; then 
   source ~/.cred
 fi
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
