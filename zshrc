@@ -74,7 +74,6 @@ function _update_vcs_info_msg() {
 add-zsh-hook precmd _update_vcs_info_msg
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey -e
-export LANG=C
 export EDITOR=vim
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
