@@ -47,7 +47,14 @@ config.keys = {
 config.key_tables = {
     search_mode = {
         { key = 'Enter',     mods = 'NONE', action = wezterm.action.CopyMode 'PriorMatch' },
-        { key = 'Escape',    mods = 'NONE', action = wezterm.action.CopyMode 'Close' },
+        {
+            key = 'Escape',
+            mods = 'NONE',
+            action = wezterm.action.Multiple {
+                wezterm.action.CopyMode 'ClearPattern',
+                wezterm.action.CopyMode 'Close',
+            }
+        },
         { key = 'n',         mods = 'CTRL', action = wezterm.action.CopyMode 'NextMatch' },
         { key = 'p',         mods = 'CTRL', action = wezterm.action.CopyMode 'PriorMatch' },
         { key = 'r',         mods = 'CTRL', action = wezterm.action.CopyMode 'CycleMatchType' },
