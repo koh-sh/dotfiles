@@ -9,9 +9,13 @@ config.color_scheme = 'Adventure'
 config.font = wezterm.font('JetBrains Mono', { weight = 'ExtraBold', italic = false })
 config.font_size = 12.2
 config.window_background_opacity = 0.70
+config.colors = {
+    scrollbar_thumb = 'grey',
+}
 
 -- Miscellaneous Settings
 config.notification_handling = "NeverShow"
+config.enable_scroll_bar = true
 
 -- Key Bindings
 config.keys = {
@@ -33,6 +37,9 @@ config.keys = {
     -- Navigate between panes with cmd+[ and cmd+]
     { key = '[', mods = 'SUPER',       action = act.ActivatePaneDirection 'Prev' },
     { key = ']', mods = 'SUPER',       action = act.ActivatePaneDirection 'Next' },
+
+    -- Open Tab in Home dir
+    { key = 't', mods = 'SUPER',       action = act { SpawnCommandInNewTab = { cwd = wezterm.home_dir } } },
 }
 
 -- Key Bindings for Search Mode
