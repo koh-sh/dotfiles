@@ -10,7 +10,9 @@ done
 # cp FILES
 for file in $(find . -type f -not -path "./.git/*" -not -path "./README.md" -not -path "./setup.sh" | cut -c 3-)
 do
-    if ! diff "$file" "$HOME/$file"; then
+    if [ ! -r "$HOME/$file" ]; then
+        cp -i "$file" "$HOME/$file"
+    elif ! diff "$file" "$HOME/$file"; then
         cp -i "$file" "$HOME/$file" || :
     fi
 done
