@@ -11,6 +11,10 @@ config.font_size = 12.2
 config.window_background_opacity = 0.70
 config.colors = {
     scrollbar_thumb = 'grey',
+    selection_fg = 'black',
+    selection_bg = 'silver',
+    copy_mode_inactive_highlight_bg = { Color = 'Red' },
+    copy_mode_inactive_highlight_fg = { Color = 'black' },
 }
 
 -- Miscellaneous Settings
@@ -40,13 +44,24 @@ config.keys = {
 
     -- Open Tab in Home dir
     { key = 't', mods = 'SUPER',       action = act { SpawnCommandInNewTab = { cwd = wezterm.home_dir } } },
+
+    -- Ignore clipboard when searching
+    {
+        key = 'f',
+        mods = 'SUPER',
+        action = act.Multiple {
+            act.ClearSelection,
+            act.Search { CaseInSensitiveString = '' },
+        }
+    },
 }
 
 -- Key Bindings for Search Mode
 -- To get default bindings, use: `wezterm show-keys --lua --key-table search_mode`
 config.key_tables = {
     search_mode = {
-        { key = 'Enter',     mods = 'NONE', action = act.CopyMode 'PriorMatch' },
+        { key = 'Enter', mods = 'NONE',  action = act.CopyMode 'PriorMatch' },
+        { key = 'Enter', mods = 'SHIFT', action = act.CopyMode 'NextMatch' },
         {
             key = 'Escape',
             mods = 'NONE',
