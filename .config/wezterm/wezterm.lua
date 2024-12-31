@@ -20,6 +20,7 @@ config.colors = {
 -- Miscellaneous Settings
 config.notification_handling = "NeverShow"
 config.enable_scroll_bar = true
+config.scrollback_lines = 10000
 
 -- Key Bindings
 config.keys = {
