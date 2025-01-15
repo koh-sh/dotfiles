@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# install commitlint if not installed
+if ! command -v commitlint &> /dev/null; then
+    echo "commitlint not found, installing..."
+    npm install -g @commitlint/cli @commitlint/config-conventional
+fi
+
+# set config
+# SEE: https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional
+CONFIG="
+extends:
+  - '@commitlint/config-conventional'
+"
+
+# exec commitlint
+commitlint --edit "$1" --config <(echo "$CONFIG")
