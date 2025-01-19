@@ -14,3 +14,8 @@ bind generic G move-last-line
 bind generic p ?git pull
 bind generic P ?git push origin %(branch)
 bind generic C ?code %(directory)
+bind status R ?git restore -- %(file)
+bind status D ?rm %(file)
+bind tree X >tig -- %(directory)
+bind tree Z >tig -- %(file)
+bind blob Z >tig -- %(file)
