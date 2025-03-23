@@ -46,6 +46,9 @@ config.keys = {
     -- Open Tab in Home dir
     { key = 't', mods = 'SUPER',       action = act { SpawnCommandInNewTab = { cwd = wezterm.home_dir } } },
 
+    -- Open wezterm lua repl
+    { key = 'R', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+
     -- Ignore clipboard when searching
     {
         key = 'f',
@@ -81,6 +84,16 @@ config.key_tables = {
         { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
     }
 }
+
+-- wezterm.plugin.update_all()
+-- local theme_rotator = wezterm.plugin.require 'file:///Users/koh/github/wezterm-theme-rotator'
+-- theme_rotator.apply_to_config(config)
+local theme_rotator = wezterm.plugin.require 'https://github.com/koh-sh/wezterm-theme-rotator'
+theme_rotator.apply_to_config(config, {
+  -- Customize "Next Theme" key
+  default_theme_key = 'y',
+  default_theme_mods = 'SUPER|SHIFT',
+})
 
 -- Return the configuration to wezterm
 return config
