@@ -133,9 +133,9 @@ local function setup_search_mode(config)
 end
 
 -----------------------------------------------------------
--- Theme Configuration
+-- Theme Rotator Plugin Configuration
 -----------------------------------------------------------
-local function setup_theme(config)
+local function setup_theme_rotator_plugin(config)
     -- local theme_rotator = wezterm.plugin.require 'file:///Users/koh/github/wezterm-theme-rotator'
     local theme_rotator = wezterm.plugin.require 'https://github.com/koh-sh/wezterm-theme-rotator'
     theme_rotator.apply_to_config(config, {
@@ -152,7 +152,7 @@ local function apply_config(config)
     setup_general(config)
     setup_key_bindings(config)
     setup_search_mode(config)
-    setup_theme(config)
+    setup_theme_rotator_plugin(config)
 end
 
 -- Apply all configurations and return
