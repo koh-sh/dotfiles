@@ -23,7 +23,11 @@ config.enable_scroll_bar = true
 config.scrollback_lines = 10000
 
 -- Key Bindings
-config.keys = {
+-- Initialize config.keys if it doesn't exist
+config.keys = config.keys or {}
+
+-- Define key bindings in a table
+local key_bindings = {
     -- Input backslash instead of ¥ (Mac-specific)
     { key = "¥", mods = 'NONE',        action = act.SendKey { key = '\\' } },
 
@@ -47,7 +51,7 @@ config.keys = {
     { key = 't', mods = 'SUPER',       action = act { SpawnCommandInNewTab = { cwd = wezterm.home_dir } } },
 
     -- Open wezterm lua repl
-    { key = 'R', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+    { key = 'R', mods = 'CTRL',        action = wezterm.action.ShowDebugOverlay },
 
     -- Ignore clipboard when searching
     {
@@ -59,6 +63,23 @@ config.keys = {
         }
     },
 }
+
+-- Helper function to check if a key binding already exists
+local function has_binding(existing_bindings, new_binding)
+    for _, binding in ipairs(existing_bindings) do
+        if binding.key == new_binding.key and binding.mods == new_binding.mods then
+            return true
+        end
+    end
+    return false
+end
+
+-- Add key bindings to config, avoiding duplicates
+for _, binding in ipairs(key_bindings) do
+    if not has_binding(config.keys, binding) then
+        table.insert(config.keys, binding)
+    end
+end
 
 -- Key Bindings for Search Mode
 -- To get default bindings, use: `wezterm show-keys --lua --key-table search_mode`
@@ -85,14 +106,12 @@ config.key_tables = {
     }
 }
 
--- wezterm.plugin.update_all()
 -- local theme_rotator = wezterm.plugin.require 'file:///Users/koh/github/wezterm-theme-rotator'
--- theme_rotator.apply_to_config(config)
 local theme_rotator = wezterm.plugin.require 'https://github.com/koh-sh/wezterm-theme-rotator'
 theme_rotator.apply_to_config(config, {
-  -- Customize "Next Theme" key
-  default_theme_key = 'y',
-  default_theme_mods = 'SUPER|SHIFT',
+    -- Customize "Next Theme" key
+    default_theme_key = 'y',
+    default_theme_mods = 'SUPER|SHIFT',
 })
 
 -- Return the configuration to wezterm
