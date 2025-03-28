@@ -55,34 +55,44 @@ local function setupVimStyleNavigation()
     bindKeyRemap({ "ctrl" }, "f", createKeyPressFunction("delete"))
 end
 
+-- Global variable to store the event tap (prevent GC)
+CommandKeyEventTap = nil
+
 -- IME switching functionality
 local function setupIMESwitching()
-    local prevKeyCode
+    local prevKeyCode = nil
+    local lastFlags = nil
 
     local function keyStroke(modifiers, character)
-        hs.eventtap.keyStroke(modifiers, character)
+        hs.eventtap.keyStroke(modifiers, character, 0) -- Add delay parameter
     end
 
     local function handleIMEEvent(e)
         local keyCode = e:getKeyCode()
-        local isCmdKeyUp = not (e:getFlags()['cmd']) and e:getType() == hs.eventtap.event.types.flagsChanged
+        local flags = e:getFlags()
+        local eventType = e:getType()
 
-        if isCmdKeyUp then
-            if prevKeyCode == KEY_CODES.LEFT_COMMAND then
-                keyStroke({}, KEY_CODES.EISUU)
-            elseif prevKeyCode == KEY_CODES.RIGHT_COMMAND then
-                keyStroke({}, KEY_CODES.KANA)
+        -- Only handle on key up of command key
+        if eventType == hs.eventtap.event.types.flagsChanged then
+            -- Command key was released
+            if lastFlags and lastFlags.cmd and not flags.cmd then
+                if prevKeyCode == KEY_CODES.LEFT_COMMAND then
+                    keyStroke({}, KEY_CODES.EISUU)
+                elseif prevKeyCode == KEY_CODES.RIGHT_COMMAND then
+                    keyStroke({}, KEY_CODES.KANA)
+                end
             end
+            prevKeyCode = keyCode
+            lastFlags = flags
         end
-
-        prevKeyCode = keyCode
     end
 
-    local eventTap = hs.eventtap.new(
-        { hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp },
+    -- Store in global variable to prevent GC
+    CommandKeyEventTap = hs.eventtap.new(
+        { hs.eventtap.event.types.flagsChanged },
         handleIMEEvent
     )
-    eventTap:start()
+    CommandKeyEventTap:start()
 end
 
 -- Initialize all configurations
