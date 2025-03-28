@@ -1,3 +1,7 @@
+-- Download Zip and execute to store under Spoon dir
+-- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip
+hs.loadSpoon("FnMate")
+
 local function keyCode(key, modifiers)
    modifiers = modifiers or {}
    return function()
