@@ -53,6 +53,9 @@ local function setupVimStyleNavigation()
 
     -- Additional mappings
     bindKeyRemap({ "ctrl" }, "f", createKeyPressFunction("delete"))
+
+    -- Defeating paste blocking
+    hs.hotkey.bind({ "cmd", "alt" }, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 end
 
 -- Global variable to store the event tap (prevent GC)
