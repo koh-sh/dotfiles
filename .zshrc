@@ -59,7 +59,6 @@ setopt hist_expire_dups_first    # Expire duplicate entries first
 setopt hist_find_no_dups        # Do not display duplicates during searches
 setopt hist_ignore_dups         # Do not record duplicate commands
 setopt hist_ignore_space        # Do not record commands starting with space
-setopt hist_verify              # Show command with history expansion before running it
 
 # History settings
 HISTFILE=~/.zsh_history
