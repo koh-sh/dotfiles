@@ -17,4 +17,4 @@ CONFIG='{
 }'
 
 # check staged changes
-git diff --cached --name-only | xargs secretlint --secretlintrc <(echo "$CONFIG")
+git diff --cached --name-only --diff-filter=d | xargs secretlint --secretlintrc <(echo "$CONFIG")
