@@ -8,7 +8,7 @@ do
 done
 
 # cp FILES
-for file in $(find . -type f -not -path "./.git/*" -not -path "./README.md" -not -path "./setup.sh" | cut -c 3-)
+for file in $(find . -type f -not -path "./.git/*" -not -path "./README.md" -not -path "./setup.sh" -not -path "./.gitignore" | cut -c 3-)
 do
     if [ ! -r "$HOME/$file" ]; then
         cp -i "$file" "$HOME/$file"
