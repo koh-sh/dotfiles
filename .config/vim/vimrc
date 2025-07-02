@@ -4,6 +4,7 @@ set nobackup                       " Disable backup files
 set noswapfile                     " Disable swap files
 set autoread                       " Auto reload files changed outside vim
 set hidden                         " Allow switching buffers without saving
+set viminfofile=$XDG_CACHE_HOME/vim/viminfo " XDG Base Directory compliance
 
 """ Interface and Input """
 set showcmd                        " Show partial commands in the last line

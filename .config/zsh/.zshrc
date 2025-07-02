@@ -7,6 +7,13 @@ autoload -Uz select-word-style
 colors
 select-word-style default
 
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_RUNTIME_DIR="/run/user/$UID"
+
 # Environment settings
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -21,13 +28,14 @@ if type brew &>/dev/null; then
 fi
 
 autoload -Uz compinit
-compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 # Word handling configuration
 zstyle ':zle:*' word-chars " /=;@:{},|"
@@ -61,7 +69,7 @@ setopt hist_ignore_dups         # Do not record duplicate commands
 setopt hist_ignore_space        # Do not record commands starting with space
 
 # History settings
-HISTFILE=~/.zsh_history
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -112,6 +120,23 @@ bindkey -e
 
 # Editor configuration
 export EDITOR=vim
+
+# XDG-compliant application configurations
+export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
+# SEE: https://github.com/ansible/ansible/issues/78228
+export ANSIBLE_SSH_CONTROL_PATH_DIR="$XDG_DATA_HOME"/ansible/cp
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+# SEE: https://github.com/docker/roadmap/issues/408
+#export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export GOPATH="$XDG_DATA_HOME"/go
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME"/hammerspoon/init.lua
+
+# FIXME
+# echo "export ZDOTDIR=$HOME/.config/zsh" | sudo tee -a /etc/zshenv
 
 # Load credentials if available
 if [ -r ~/.cred ]; then 
