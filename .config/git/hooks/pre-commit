@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # install secretlint if not installed
 if ! command -v secretlint &> /dev/null; then

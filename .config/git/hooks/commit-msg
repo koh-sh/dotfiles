@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # install commitlint if not installed
 if ! command -v commitlint &> /dev/null; then

@@ -133,6 +133,9 @@ export GOPATH="$XDG_DATA_HOME"/go
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export PATH="$XDG_DATA_HOME/npm/bin:$PATH"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export NODE_PATH="$XDG_DATA_HOME/npm/lib/node_modules"
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME"/hammerspoon/init.lua
 # TODO
 # https://www.hammerspoon.org/Spoons/FnMate.html
