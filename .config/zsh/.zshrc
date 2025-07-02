@@ -134,6 +134,8 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME"/hammerspoon/init.lua
+# TODO
+# https://www.hammerspoon.org/Spoons/FnMate.html
 
 # FIXME
 # echo "export ZDOTDIR=$HOME/.config/zsh" | sudo tee -a /etc/zshenv
