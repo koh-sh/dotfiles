@@ -6,6 +6,13 @@ ruby = 'latest'
 go = 'latest'
 rust = 'latest'
 lua = 'latest'
+actionlint = "latest"
+awscli = "latest"
+gh = "latest"
+hugo = "latest"
+lazydocker = "latest"
+peco = "latest"
+shellcheck = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
