@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = koh-sh
-	email =
+	email = k@koh-sh.com
 [pull]
 	rebase = false
 	ff = only

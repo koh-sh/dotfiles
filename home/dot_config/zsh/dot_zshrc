@@ -136,12 +136,6 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export PATH="$XDG_DATA_HOME/npm/bin:$PATH"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NODE_PATH="$XDG_DATA_HOME/npm/lib/node_modules"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME"/hammerspoon/init.lua
-# TODO
-# https://www.hammerspoon.org/Spoons/FnMate.html
-
-# FIXME
-# echo "export ZDOTDIR=$HOME/.config/zsh" | sudo tee -a /etc/zshenv
 
 # Load credentials if available
 if [ -r ~/.cred ]; then 
@@ -150,3 +144,4 @@ fi
 
 # Initialize mise
 eval "$(mise activate zsh)"
+
