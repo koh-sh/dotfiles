@@ -13,6 +13,7 @@ hugo = "latest"
 lazydocker = "latest"
 peco = "latest"
 shellcheck = "latest"
+claude-code = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
