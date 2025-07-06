@@ -151,4 +151,3 @@ fi
 # Initialize mise
 eval "$(mise activate zsh)"
 
-# aaa
