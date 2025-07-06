@@ -1,0 +1,6 @@
+@commitlint/cli
+@commitlint/config-conventional
+secretlint
+@secretlint/secretlint-rule-preset-recommend
+@anthropic-ai/claude-code
+@google/gemini-cli

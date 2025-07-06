@@ -1,0 +1,12 @@
+[tools]
+terraform = 'latest'
+node = 'latest'
+python = 'latest'
+ruby = 'latest'
+go = 'latest'
+rust = 'latest'
+lua = 'latest'
+
+[env]
+MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
+MISE_NODE_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-npm-packages'

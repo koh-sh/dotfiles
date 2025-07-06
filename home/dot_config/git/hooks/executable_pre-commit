@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+# install secretlint if not installed
+if ! command -v secretlint &> /dev/null; then
+    echo "secretlint not found, installing..."
+    npm install -g secretlint @secretlint/secretlint-rule-preset-recommend
+fi
+
+# secretlint config
+# SEE: https://github.com/secretlint/secretlint/blob/master/docs/configuration.md
+CONFIG='{
+  "rules": [
+    {
+      "id": "@secretlint/secretlint-rule-preset-recommend"
+    }
+  ]
+}'
+
+# check staged changes
+git diff --cached --name-only --diff-filter=d | xargs secretlint --secretlintrc <(echo "$CONFIG")
