@@ -107,7 +107,11 @@ esac
 # Prompt configuration
 function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_} %D{%Y-%m-%d %H:%M:%S}"
+    if [[ "${AWSUME_PROFILE}" =~ "prod" ]] || [[ "${AWSUME_PROFILE}" =~ "prd" ]] ; then
+      RPROMPT="${vcs_info_msg_0_} %D{%Y-%m-%d %H:%M:%S} %F{red}${AWSUME_PROFILE}%f"
+    else
+      RPROMPT="${vcs_info_msg_0_} %D{%Y-%m-%d %H:%M:%S} %F{blue}${AWSUME_PROFILE}%f"
+    fi
 }
 
 add-zsh-hook precmd _update_vcs_info_msg
