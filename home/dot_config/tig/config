@@ -1,5 +1,6 @@
 # options
-set refresh-mode = auto
+set refresh-mode = periodic
+set refresh-interval = 1
 set split-view-height = 80%
 
 # key bind
