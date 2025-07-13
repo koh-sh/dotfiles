@@ -21,3 +21,4 @@ MISE_NODE_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-npm-packages'
 
 [settings]
 idiomatic_version_file_enable_tools = ["go", "node", "python", "ruby"]
+experimental = true
