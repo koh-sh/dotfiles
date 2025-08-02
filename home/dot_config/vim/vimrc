@@ -84,4 +84,5 @@ augroup END
 if has('patch-9.1.1590')
   set autocomplete
   set wildoptions+=fuzzy
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
 endif
