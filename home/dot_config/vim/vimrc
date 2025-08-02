@@ -79,3 +79,9 @@ augroup vimrc_settings
   autocmd!
   " Add any auto commands here
 augroup END
+
+""" Auto Complete """
+if has('patch-9.1.1590')
+  set autocomplete
+  set wildoptions+=fuzzy
+endif
