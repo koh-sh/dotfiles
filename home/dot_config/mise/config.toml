@@ -15,6 +15,7 @@ shellcheck = "latest"
 claude-code = "latest"
 vim = "latest"
 bun = "latest"
+uv = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
