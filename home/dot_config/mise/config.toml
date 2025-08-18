@@ -16,11 +16,19 @@ claude-code = "latest"
 vim = "latest"
 bun = "latest"
 uv = "latest"
+"github:koh-sh/ccnewline" = "latest"
+"github:koh-sh/codebuild-multirunner" = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
 MISE_NODE_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-npm-packages'
 
 [settings]
-idiomatic_version_file_enable_tools = ["go", "node", "python", "ruby", "terraform"]
+idiomatic_version_file_enable_tools = [
+  "go",
+  "node",
+  "python",
+  "ruby",
+  "terraform",
+]
 experimental = true
