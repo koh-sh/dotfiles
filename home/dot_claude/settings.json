@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/ccnewline"
+            "command": "ccnewline"
           }
         ]
       }
