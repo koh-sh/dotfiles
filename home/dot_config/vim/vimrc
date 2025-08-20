@@ -11,7 +11,6 @@ set showcmd                        " Show partial commands in the last line
 set wildmenu                       " Enhanced command line completion
 set wildmode=list:longest         " List all matches and complete to longest common string
 set backspace=indent,eol,start    " Allow backspace over everything in insert mode
-set clipboard=unnamed,unnamedplus " Use system clipboard for all operations
 set mouse=a                       " Enable mouse support in all modes
 set ttimeoutlen=50               " Reduce key code delay
 set cmdheight=2                  " More space for displaying messages
