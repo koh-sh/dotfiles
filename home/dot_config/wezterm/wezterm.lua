@@ -22,6 +22,9 @@ local function setup_visuals(config)
     }
 end
 
+-- Store the original opacity value
+local original_opacity = 0.70
+
 -----------------------------------------------------------
 -- General Settings
 -----------------------------------------------------------
@@ -52,6 +55,19 @@ local key_bindings = {
         bindings = {
             { key = "¥", mods = 'NONE', action = act.SendKey { key = '\\' } },
             { key = 'R', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+            {
+                key = 's',
+                mods = 'SUPER',
+                action = wezterm.action_callback(function(window, pane)
+                    local overrides = window:get_config_overrides() or {}
+                    if overrides.window_background_opacity == 1.0 then
+                        overrides.window_background_opacity = original_opacity
+                    else
+                        overrides.window_background_opacity = 1.0
+                    end
+                    window:set_config_overrides(overrides)
+                end),
+            },
         }
     },
     -- Pane management
