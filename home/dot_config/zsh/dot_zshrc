@@ -142,10 +142,13 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NODE_PATH="$XDG_DATA_HOME/npm/lib/node_modules"
 export PATH="$HOME/.rd/bin:$PATH"
 export IRBRC="$XDG_CONFIG_HOME"/irb/irbrc
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 
 # Load credentials if available
-if [ -r ~/.cred ]; then 
-  source ~/.cred
+if [ -r "$XDG_CONFIG_HOME/zsh/.cred" ]; then 
+  source "$XDG_CONFIG_HOME/zsh/.cred"
 fi
 
 # Initialize mise
