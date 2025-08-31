@@ -18,6 +18,7 @@ readonly DIRECTORIES=(
     "$XDG_CONFIG_HOME/ipython"
     "$XDG_STATE_HOME/less"
     "$XDG_CACHE_HOME/vim"
+    "$XDG_DATA_HOME/irb"
 )
 
 for dir in "${DIRECTORIES[@]}"; do
