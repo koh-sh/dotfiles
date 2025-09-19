@@ -16,12 +16,16 @@ claude-code = "latest"
 vim = "latest"
 bun = "latest"
 uv = "latest"
+"npm:@commitlint/cli" = "latest"
+"npm:@commitlint/config-conventional" = "latest"
+"npm:secretlint" = "latest"
+"npm:@secretlint/secretlint-rule-preset-recommend" = "latest"
+"pipx:ansible" = "latest"
 "github:koh-sh/ccnewline" = "latest"
 "github:koh-sh/codebuild-multirunner" = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
-MISE_NODE_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-npm-packages'
 
 [settings]
 idiomatic_version_file_enable_tools = [
