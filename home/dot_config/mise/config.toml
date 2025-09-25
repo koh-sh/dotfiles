@@ -37,3 +37,11 @@ idiomatic_version_file_enable_tools = [
   "terraform",
 ]
 experimental = true
+
+[tasks.bump]
+description = "Bump tools and packages"
+run = """
+brew update && brew upgrade
+brew upgrade --cask wezterm@nightly --no-quarantine --greedy-latest
+mise up
+"""
