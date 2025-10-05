@@ -24,6 +24,7 @@ neovim = "latest"
 "pipx:ansible" = "latest"
 "github:koh-sh/ccnewline" = "latest"
 "github:koh-sh/codebuild-multirunner" = "latest"
+"github:koh-sh/apcdeploy" = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
