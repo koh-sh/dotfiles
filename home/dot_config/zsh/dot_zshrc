@@ -107,16 +107,19 @@ esac
 # Prompt configuration
 function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
-    if [[ "${AWSUME_PROFILE}" =~ "prod" ]] || [[ "${AWSUME_PROFILE}" =~ "prd" ]] ; then
-      RPROMPT="${vcs_info_msg_0_} %D{%Y-%m-%d %H:%M:%S} %F{red}${AWSUME_PROFILE}%f"
-    else
-      RPROMPT="${vcs_info_msg_0_} %D{%Y-%m-%d %H:%M:%S} %F{blue}${AWSUME_PROFILE}%f"
+    local aws_profile_display=""
+    if [[ -n "${AWSUME_PROFILE}" ]]; then
+        if [[ "${AWSUME_PROFILE}" =~ "prod" ]] || [[ "${AWSUME_PROFILE}" =~ "prd" ]] ; then
+            aws_profile_display=" %F{red}(${AWSUME_PROFILE})%f"
+        else
+            aws_profile_display=" %F{blue}(${AWSUME_PROFILE})%f"
+        fi
     fi
+    PROMPT="%{${fg[green]}%}%~%{${reset_color}%} %F{248}[%D{%Y-%m-%d %H:%M:%S}]%f${aws_profile_display}
+%# "
 }
 
 add-zsh-hook precmd _update_vcs_info_msg
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%# "
 
 # Key bindings
 bindkey '^R' history-incremental-pattern-search-backward
