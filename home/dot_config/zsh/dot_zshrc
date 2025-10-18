@@ -115,7 +115,7 @@ function _update_vcs_info_msg() {
             aws_profile_display=" %F{blue}(${AWSUME_PROFILE})%f"
         fi
     fi
-    PROMPT="%{${fg[green]}%}%~%{${reset_color}%} %F{248}[%D{%Y-%m-%d %H:%M:%S}]%f${aws_profile_display}
+    PROMPT="%{${fg[green]}%}%~%{${reset_color}%} ${vcs_info_msg_0_} %F{248}[%D{%Y-%m-%d %H:%M:%S}]%f${aws_profile_display}
 %# "
 }
 
