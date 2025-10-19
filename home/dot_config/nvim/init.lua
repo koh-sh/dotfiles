@@ -68,7 +68,7 @@ vim.opt.hlsearch = true        -- 検索結果ハイライト
 vim.opt.gdefault = true        -- 置換でg flagをデフォルト有効
 
 -- Performance Optimization
-vim.opt.lazyredraw = true      -- マクロ実行中の画面更新抑制
+vim.opt.lazyredraw = false     -- Noiceと互換性のため無効化
 vim.opt.ttyfast = true         -- 高速ターミナル接続
 vim.opt.updatetime = 1000      -- スワップファイル書き込み遅延
 vim.opt.maxmempattern = 2000000 -- パターンマッチング用メモリ増加
