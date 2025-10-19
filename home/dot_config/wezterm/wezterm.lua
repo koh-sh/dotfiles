@@ -54,6 +54,7 @@ local key_bindings = {
         category = "System",
         bindings = {
             { key = "¥", mods = 'NONE', action = act.SendKey { key = '\\' } },
+            { key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
             { key = 'R', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
             {
                 key = 's',
