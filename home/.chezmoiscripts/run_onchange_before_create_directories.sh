@@ -21,6 +21,7 @@ readonly DIRECTORIES=(
     "$XDG_DATA_HOME/irb"
     "$XDG_CACHE_HOME/bundle"
     "$XDG_DATA_HOME/bundle"
+    "$XDG_CONFIG_HOME/nvim"
 )
 
 for dir in "${DIRECTORIES[@]}"; do
