@@ -1,5 +1,7 @@
 .DS_Store
 .vscode/
 *.log
+fnox.local.toml
+mise.local.toml
 
 **/.claude/settings.local.json

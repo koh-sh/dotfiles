@@ -151,11 +151,7 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export PATH="$HOME/.local/bin:$PATH"
 
-# Load credentials if available
-if [ -r "$XDG_CONFIG_HOME/zsh/.cred" ]; then 
-  source "$XDG_CONFIG_HOME/zsh/.cred"
-fi
-
-# Initialize mise
+# Initialize mise/fnox
 eval "$(mise activate zsh)"
-
+eval "$(fnox activate zsh)"
+export FNOX_SHELL_OUTPUT=none
