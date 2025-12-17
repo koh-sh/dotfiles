@@ -40,6 +40,7 @@ idiomatic_version_file_enable_tools = [
   "terraform",
 ]
 experimental = true
+install_before = "7d"
 
 [tasks.bump]
 description = "Bump tools and packages"
