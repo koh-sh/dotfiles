@@ -27,6 +27,7 @@ neovim = "latest"
 "github:koh-sh/codebuild-multirunner" = "latest"
 "github:koh-sh/apcdeploy" = "latest"
 fnox = "latest"
+"github:jorgerojas26/lazysql" = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
