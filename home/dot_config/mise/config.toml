@@ -28,6 +28,7 @@ neovim = "latest"
 "github:koh-sh/apcdeploy" = "latest"
 fnox = "latest"
 "github:jorgerojas26/lazysql" = "latest"
+mysql = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
