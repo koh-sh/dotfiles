@@ -162,6 +162,15 @@ local function setup_theme_rotator_plugin(config)
 end
 
 -----------------------------------------------------------
+-- Tab Bar Settings
+-----------------------------------------------------------
+local function setup_tab_bar(config)
+    config.show_new_tab_button_in_tab_bar = false
+    config.show_close_tab_button_in_tabs = false
+    config.window_decorations = "RESIZE"
+end
+
+-----------------------------------------------------------
 -- Apply all configurations
 -----------------------------------------------------------
 local function apply_config(config)
@@ -169,6 +178,7 @@ local function apply_config(config)
     setup_general(config)
     setup_key_bindings(config)
     setup_search_mode(config)
+    setup_tab_bar(config)
     setup_theme_rotator_plugin(config)
 end
 
