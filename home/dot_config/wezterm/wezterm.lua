@@ -168,6 +168,14 @@ local function setup_tab_bar(config)
     config.show_new_tab_button_in_tab_bar = false
     config.show_close_tab_button_in_tabs = false
     config.window_decorations = "RESIZE"
+
+    wezterm.on('format-tab-title', function(tab)
+        local pane = tab.active_pane
+        local index = tab.tab_index + 1
+        local process = pane.foreground_process_name
+        local title = process and process:match("([^/]+)$") or pane.title
+        return index .. ": " .. title
+    end)
 end
 
 -----------------------------------------------------------
