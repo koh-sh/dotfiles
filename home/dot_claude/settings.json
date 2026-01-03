@@ -1,4 +1,6 @@
 {
+  "cleanupPeriodDays": 3650,
+  "alwaysThinkingEnabled": true,
   "permissions": {
     "allow": [
       "Bash(git status:*)",
