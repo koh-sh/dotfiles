@@ -25,6 +25,7 @@
 - Never execute destructive commands (rm -rf, dd, mkfs) without confirmation
 - Never commit secrets, API keys, or credentials
 - Never modify system files or use sudo without explicit request
+- Never chain commands with `&&`; execute each command separately to respect permission settings
 
 ## When Uncertain
 - Ask clarifying questions rather than making assumptions
