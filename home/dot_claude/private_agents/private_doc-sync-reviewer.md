@@ -1,5 +1,5 @@
 ---
-name: my-doc-reviewer
+name: my-doc-sync-reviewer
 description: |
   Documentation reviewer. Reviews README and documentation for clarity,
   accuracy, and consistency with the current codebase.

@@ -8,7 +8,7 @@ Execute the following reviews in parallel:
 2. **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
 3. **my-security-reviewer**: Check OWASP Top 10, auth, input validation
 4. **my-test-reviewer**: Check test structure, meaningful tests, coverage
-5. **my-doc-reviewer**: Check README accuracy, documentation completeness
+5. **my-doc-sync-reviewer**: Check README accuracy, documentation completeness
 
 After all reviews complete, provide a summary in Japanese:
 
@@ -32,7 +32,7 @@ After all reviews complete, provide a summary in Japanese:
    - 推奨: [どう修正すべきか]
 
 **検出件数**:
-| my-code-reviewer | my-complexity-reviewer | my-security-reviewer | my-test-reviewer | my-doc-reviewer |
+| my-code-reviewer | my-complexity-reviewer | my-security-reviewer | my-test-reviewer | my-doc-sync-reviewer |
 |------------------|------------------------|----------------------|------------------|-----------------|
 | X件              | X件                    | X件                  | X件              | X件             |
 
