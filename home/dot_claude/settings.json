@@ -35,7 +35,9 @@
       "Bash(which:*)",
       "Bash(date)",
       "Bash(whoami)",
-      "WebSearch"
+      "WebSearch",
+      "Read(~/.claude)",
+      "Read(~/.claude/**)"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -90,8 +92,12 @@
       "Read(**/.env.*)",
       "Read(.envrc)",
       "Read(**/.envrc)",
-      "Read(~/.*)",
-      "Read(~/.*/**)",
+      "Read(~/.config)",
+      "Read(~/.config/**)",
+      "Read(~/.local)",
+      "Read(~/.local/**)",
+      "Read(~/.cache)",
+      "Read(~/.cache/**)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
       "Write(//tmp/**)",
