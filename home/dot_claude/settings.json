@@ -35,9 +35,7 @@
       "Bash(which:*)",
       "Bash(date)",
       "Bash(whoami)",
-      "WebSearch",
-      "Read(~/.claude)",
-      "Read(~/.claude/**)"
+      "WebSearch"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -122,7 +120,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Funk.aiff"
+            "command": "~/.claude/hooks/smart-notify.sh"
           }
         ]
       }
@@ -133,7 +131,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Funk.aiff"
+            "command": "~/.claude/hooks/smart-notify.sh"
           }
         ]
       }
