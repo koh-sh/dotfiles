@@ -19,7 +19,7 @@ description: |
   assistant: "I'll use the spec-reviewer agent to review the design document."
   </example>
 tools: Glob, Grep, Read, Bash, WebFetch, WebSearch
-model: sonnet
+model: opus
 color: magenta
 ---
 
