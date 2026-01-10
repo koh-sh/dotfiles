@@ -49,7 +49,7 @@ vim.opt.number = true          -- 行番号表示
 vim.opt.signcolumn = "yes"     -- サインカラム常時表示(LSP用)
 vim.opt.scrolloff = 8          -- カーソル上下の余白行数
 vim.opt.sidescrolloff = 16     -- カーソル左右の余白文字数
-vim.opt.ambiwidth = "double"   -- 曖昧幅文字の適切な処理
+-- vim.opt.ambiwidth = "double"   -- 曖昧幅文字の適切な処理 (snacks.nvimと競合するため無効化)
 
 -- Text Formatting
 vim.opt.expandtab = true       -- タブをスペースに変換
