@@ -1,6 +1,5 @@
 {
   "cleanupPeriodDays": 3650,
-  "alwaysThinkingEnabled": true,
   "permissions": {
     "allow": [
       "Bash(git status:*)",
@@ -140,5 +139,7 @@
   "statusLine": {
     "type": "command",
     "command": "bun x ccusage statusline"
-  }
+  },
+  "alwaysThinkingEnabled": true,
+  "language": "日本語"
 }
