@@ -31,7 +31,7 @@ local original_opacity = 0.70
 local function setup_general(config)
     config.notification_handling = "NeverShow"
     config.enable_scroll_bar = true
-    config.scrollback_lines = 10000
+    config.scrollback_lines = 10000000
 end
 
 -----------------------------------------------------------
