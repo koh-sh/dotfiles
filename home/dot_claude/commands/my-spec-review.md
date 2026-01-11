@@ -8,7 +8,7 @@ Run specification/document review with verification workflow.
 2. **Verify findings**: For each Critical and Major issue reported:
    - Investigate whether the issue is valid
    - Check the actual document/code to confirm or refute the claim
-3. **Generate improvement suggestions**: For confirmed valid issues:
+3. **Generate improvement suggestions**: For confirmed valid issues only:
    - Provide concrete improvement recommendations
    - Include specific text or structure changes where applicable
 
@@ -18,47 +18,29 @@ $ARGUMENTS
 
 ## Output Format
 
-### 1. spec-critic-reviewer実行結果
+### 確認された課題と改善案
 
-[Run the agent and include the full review output here]
-
----
-
-### 2. 指摘事項の検証
-
-#### 致命的な問題 (Critical Issues) の検証
-
-| # | 問題 | 検証結果 | 根拠 |
-|---|------|----------|------|
-| 1 | [issue] | ✅ 正当 / ❌ 誤検知 / ⚠️ 部分的に正当 | [evidence] |
-
-#### 重要な問題 (Major Issues) の検証
-
-| # | 問題 | 検証結果 | 根拠 |
-|---|------|----------|------|
-| 1 | [issue] | ✅ 正当 / ❌ 誤検知 / ⚠️ 部分的に正当 | [evidence] |
+For each verified valid issue (Critical first, then Major):
 
 ---
 
-### 3. 改善案
+**[Issue Title]** `Critical` / `Major`
 
-#### 対応が必要な指摘
+**問題点**: [Description of the issue]
 
-**[Issue Title]** (Critical/Major)
-- 現状: [current state in document]
-- 改善案: [specific suggestion for improvement]
-- 変更例:
-  ```
-  [concrete example of improved text/structure]
-  ```
+**改善案**: [Specific suggestion for improvement]
+
+**変更例**:
+```
+[Concrete example of improved text/structure]
+```
 
 ---
 
-### 4. サマリー
+(Repeat for each valid issue)
 
-| 区分 | 指摘数 | 正当 | 誤検知 |
-|------|--------|------|--------|
-| Critical | X | X | X |
-| Major | X | X | X |
+### サマリー
 
-**アクション**: [次のステップの推奨]
+- **Critical**: X件
+- **Major**: X件
+- **推奨アクション**: [Next steps]
