@@ -40,3 +40,6 @@
 	updateRefs = true
 [merge]
 	conflictstyle = zdiff3
+[delta]
+  line-numbers = true
+
