@@ -17,7 +17,7 @@
   },
   "tabs": {
     "show_diagnostics": "errors",
-    "close_position": "left",
+    "close_position": "right",
     "file_icons": true,
     "git_status": true
   },
