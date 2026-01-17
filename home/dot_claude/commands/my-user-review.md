@@ -1,6 +1,6 @@
 ---
 description: Open git diff in browser for user to review changes visually
-allowed-tools: Bash(npx difit:*), Bash(git diff:*), Bash(git branch:*), Bash(git remote:*)
+allowed-tools: Bash(npx difit:*), Bash(git diff:*), Bash(git branch:*), Bash(git remote:*), Bash(git status:*), Bash(git ls-files:*)
 argument-hint: [自然言語での指示（例: mainとの差分を表示して）]
 ---
 
@@ -24,11 +24,25 @@ User provides instructions in natural language. Interpret and execute the approp
 ## Default behavior (no arguments)
 
 1. Check for uncommitted changes (including untracked files): `git status --porcelain`
-2. If changes exist: Run `npx difit .`
+2. If changes exist: Run the following command to include staged + unstaged + untracked files:
+   ```bash
+   {
+     git diff HEAD
+     git ls-files --others --exclude-standard | while read f; do
+       git diff --no-index --src-prefix=a/ --dst-prefix=b/ /dev/null "$f" 2>/dev/null
+     done
+   } | npx difit
+   ```
 3. If no changes, get current branch: `git branch --show-current`
 4. Get default branch: `git remote show origin | grep 'HEAD branch' | sed 's/.*: //'`
 5. If current branch != default branch: Run `npx difit @ <default-branch>`
 6. Otherwise: Inform user there's nothing to review
+
+## Note on untracked files
+
+- `npx difit .` does NOT include untracked files
+- Use the command in step 2 above to include untracked files in the diff
+- `git diff --no-index` requires `--src-prefix=a/ --dst-prefix=b/` to match standard git diff format
 
 ## Examples of natural language instructions
 
