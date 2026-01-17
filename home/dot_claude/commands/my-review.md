@@ -2,12 +2,18 @@
 
 Run code review using code and complexity review agents.
 
-Execute the following reviews in parallel:
+## Workflow
 
-1. **my-code-reviewer**: Check functionality, performance, best practices, naming
-2. **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
+1. **Execute review agents** in parallel:
+   - **my-code-reviewer**: Check functionality, performance, best practices, naming
+   - **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
 
-After all reviews complete, provide a summary in Japanese:
+2. **Verify findings**: For each [高] and [中] priority issue reported:
+   - Investigate whether the issue is valid
+   - Check the actual code to confirm or refute the claim
+   - Discard false positives
+
+3. **Generate summary**: For confirmed valid issues only, provide a summary in Japanese:
 
 ### コードレビュー結果
 
