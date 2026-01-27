@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "restore_on_startup": "empty_tab",
+  "on_last_window_closed": "quit_app",
   "disable_ai": false,
   "terminal": {
     "dock": "right"
@@ -41,6 +43,7 @@
     "background_coloring": "indent_aware"
   },
   "session": {
+    "restore_unsaved_buffers": false,
     "trust_all_worktrees": true
   },
   "vim_mode": true,
