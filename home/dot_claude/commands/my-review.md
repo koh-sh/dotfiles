@@ -1,12 +1,13 @@
 # review command
 
-Run code review using code and complexity review agents.
+Run code review using code, complexity, and test review agents.
 
 ## Workflow
 
 1. **Execute review agents** in parallel:
    - **my-code-reviewer**: Check functionality, performance, best practices, naming
    - **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
+   - **my-test-reviewer**: Check test quality, meaningful assertions, proper structure
 
 2. **Verify findings**: For each [高] and [中] priority issue reported:
    - Investigate whether the issue is valid
@@ -35,9 +36,9 @@ Run code review using code and complexity review agents.
    - 推奨: [どう修正すべきか]
 
 **検出件数**:
-| my-code-reviewer | my-complexity-reviewer |
-|------------------|------------------------|
-| X件              | X件                    |
+| my-code-reviewer | my-complexity-reviewer | my-test-reviewer |
+|------------------|------------------------|------------------|
+| X件              | X件                    | X件              |
 
 Notes:
 - Focus on recently changed code (use git diff)

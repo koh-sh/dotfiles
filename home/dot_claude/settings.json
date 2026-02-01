@@ -140,6 +140,9 @@
     "type": "command",
     "command": "bun x ccusage statusline"
   },
+  "language": "日本語",
   "alwaysThinkingEnabled": true,
-  "language": "日本語"
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  }
 }
