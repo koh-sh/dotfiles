@@ -11,46 +11,47 @@
   "on_last_window_closed": "quit_app",
   "disable_ai": false,
   "terminal": {
-    "dock": "right"
+    "default_width": 1000.0,
+    "dock": "right",
   },
   "bottom_dock_layout": "contained",
   "preview_tabs": {
-    "enable_preview_from_file_finder": false
+    "enable_preview_from_file_finder": false,
   },
   "tabs": {
     "show_diagnostics": "errors",
     "close_position": "right",
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   "title_bar": {
     "show_menus": false,
-    "show_branch_icon": true
+    "show_branch_icon": true,
   },
   "project_panel": {
     "file_icons": true,
-    "button": true
+    "button": true,
   },
   "search": {
-    "regex": false
+    "regex": false,
   },
   "colorize_brackets": true,
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   "show_whitespaces": "trailing",
   "indent_guides": {
-    "background_coloring": "indent_aware"
+    "background_coloring": "indent_aware",
   },
   "session": {
     "restore_unsaved_buffers": false,
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "vim_mode": true,
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "ui_font_size": 15.0,
   "buffer_font_size": 13.0,
