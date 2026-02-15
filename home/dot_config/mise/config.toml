@@ -1,7 +1,6 @@
 [tools]
 terraform = 'latest'
-# https://github.com/anthropics/claude-code/issues/9795
-node = '24'
+node = 'lts'
 python = 'latest'
 ruby = 'latest'
 go = 'latest'
@@ -54,4 +53,5 @@ run = """
 brew update && brew upgrade
 brew upgrade --cask wezterm@nightly --greedy-latest
 mise up
+claude update
 """
