@@ -111,6 +111,16 @@
             "command": "ccnewline"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ccplan hook",
+            "timeout": 600
+          }
+        ]
       }
     ],
     "Stop": [
