@@ -8,6 +8,7 @@ Run code review using code, complexity, and test review agents.
    - **my-code-reviewer**: Check functionality, performance, best practices, naming
    - **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
    - **my-test-reviewer**: Check test quality, meaningful assertions, proper structure
+   - **my-naming-style-reviewer**: Check naming conventions and code style consistency
 
 2. **Verify findings**: For each [高] and [中] priority issue reported:
    - Investigate whether the issue is valid
@@ -36,9 +37,9 @@ Run code review using code, complexity, and test review agents.
    - 推奨: [どう修正すべきか]
 
 **検出件数**:
-| my-code-reviewer | my-complexity-reviewer | my-test-reviewer |
-|------------------|------------------------|------------------|
-| X件              | X件                    | X件              |
+| my-code-reviewer | my-complexity-reviewer | my-test-reviewer | my-naming-style-reviewer |
+|------------------|------------------------|------------------|--------------------------|
+| X件              | X件                    | X件              | X件                      |
 
 Notes:
 - Focus on recently changed code (use git diff)
