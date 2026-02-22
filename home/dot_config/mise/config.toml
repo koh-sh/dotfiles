@@ -29,6 +29,7 @@ fnox = "latest"
 mysql = "latest"
 delta = "latest"
 "github:koh-sh/ccplan" = "latest"
+"github:genkiroid/cert" = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
