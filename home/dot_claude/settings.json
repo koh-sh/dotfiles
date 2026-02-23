@@ -83,6 +83,7 @@
       "Bash(xmrig:*)",
       "Bash(cryptominer:*)",
       "Bash(coinhive:*)",
+      "Bash(git -C:*)",
       "Read(.env)",
       "Read(.env.*)",
       "Read(**/.env)",
@@ -150,9 +151,9 @@
     "type": "command",
     "command": "bun x ccusage statusline"
   },
-  "language": "日本語",
-  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
-  }
+  },
+  "language": "日本語",
+  "alwaysThinkingEnabled": true
 }
