@@ -118,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "ccplan hook",
+            "command": "commd cchook",
             "timeout": 600
           }
         ]
