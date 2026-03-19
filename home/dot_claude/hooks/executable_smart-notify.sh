@@ -30,7 +30,10 @@ fi
 
 # If muted or volume is 0, show notification; otherwise play sound
 if [ "$muted" = "true" ] || [ "$volume" -eq 0 ]; then
-    osascript -e "display notification \"$message\" with title \"Claude Code\" subtitle \"$project\""
+    osascript -e 'on run argv' \
+              -e 'display notification (item 1 of argv) with title "Claude Code" subtitle (item 2 of argv)' \
+              -e 'end run' \
+              -- "$message" "$project"
 else
     afplay /System/Library/Sounds/Funk.aiff
 fi

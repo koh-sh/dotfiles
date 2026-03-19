@@ -1,4 +1,9 @@
-# naming-review command
+---
+description: Run naming convention and code style review using the naming-style-reviewer agent
+disable-model-invocation: true
+---
+
+# my-naming-review
 
 Run naming convention and code style review using the naming-style-reviewer agent.
 

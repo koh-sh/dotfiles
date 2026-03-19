@@ -27,10 +27,12 @@ chezmoi apply
 chezmoi dump-config
 ```
 
-## Custom Slash Commands
+## Skills
 
 - `/apply` - Run `chezmoi diff` and apply changes (prompts for confirmation if differences exist)
 - `/commit` - Git add, commit, and push with a simple commit message
+- `/apply-and-commit` - Apply dotfiles changes and commit to git
+- `/cc-config-create` - Create Claude Code configuration files (skills, agents, settings)
 
 ## Managed Configurations
 

@@ -1,4 +1,10 @@
-# spec-review command
+---
+description: Run specification/document review with verification workflow
+disable-model-invocation: true
+argument-hint: [document-path-or-url]
+---
+
+# my-spec-review
 
 Run specification/document review with verification workflow.
 

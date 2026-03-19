@@ -1,25 +1,28 @@
-# full-review command
+---
+description: Run code review using code, complexity, test, and naming-style review agents
+disable-model-invocation: true
+---
 
-Run comprehensive code review using all specialized review agents.
+# my-review
+
+Run code review using code, complexity, test, and naming-style review agents.
 
 ## Workflow
 
 1. **Execute review agents** in parallel:
    - **my-code-reviewer**: Check functionality, performance, best practices, naming
    - **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
-   - **my-security-reviewer**: Check OWASP Top 10, auth, input validation
-   - **my-test-reviewer**: Check test structure, meaningful tests, coverage
-   - **my-doc-sync-reviewer**: Check README accuracy, documentation completeness
+   - **my-test-reviewer**: Check test quality, meaningful assertions, proper structure
    - **my-naming-style-reviewer**: Check naming conventions and code style consistency
 
 2. **Verify findings**: For each [高] and [中] priority issue reported:
    - Investigate whether the issue is valid
-   - Check the actual code/tests/docs to confirm or refute the claim
+   - Check the actual code to confirm or refute the claim
    - Discard false positives
 
 3. **Generate summary**: For confirmed valid issues only, provide a summary in Japanese:
 
-### 総合レビュー結果
+### コードレビュー結果
 
 **対応事項**:
 
@@ -39,10 +42,9 @@ Run comprehensive code review using all specialized review agents.
    - 推奨: [どう修正すべきか]
 
 **検出件数**:
-| my-code-reviewer | my-complexity-reviewer | my-security-reviewer | my-test-reviewer | my-doc-sync-reviewer | my-naming-style-reviewer |
-|------------------|------------------------|----------------------|------------------|----------------------|--------------------------|
-| X件              | X件                    | X件                  | X件              | X件                  | X件                      |
+| my-code-reviewer | my-complexity-reviewer | my-test-reviewer | my-naming-style-reviewer |
+|------------------|------------------------|------------------|--------------------------|
+| X件              | X件                    | X件              | X件                      |
 
 Notes:
 - Focus on recently changed code (use git diff)
-- Missing tests or outdated docs should be flagged as issues

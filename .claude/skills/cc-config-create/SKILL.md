@@ -1,5 +1,6 @@
 ---
-description: Create Claude Code configuration files (commands, agents, settings)
+description: Create Claude Code configuration files (skills, agents, settings)
+disable-model-invocation: true
 allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(ls:*), Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, Task
 argument-hint: [feature-type] [description]
 ---
@@ -28,7 +29,7 @@ Create Claude Code configuration files following the workflow below.
 3. **Implement the configuration**
    - Create files under `home/dot_claude/` (chezmoi source directory)
    - Follow chezmoi naming conventions (e.g., `dot_` prefix for dotfiles)
-   - Include appropriate frontmatter for slash commands
+   - Include appropriate frontmatter for skills
    - Use clear, descriptive names and descriptions
 
 4. **Request review**

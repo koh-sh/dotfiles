@@ -1,10 +1,11 @@
 ---
 description: Open git diff in browser for user to review changes visually
+disable-model-invocation: true
 allowed-tools: Bash(npx difit:*), Bash(git diff:*), Bash(git branch:*), Bash(git remote:*), Bash(git status:*), Bash(git ls-files:*)
 argument-hint: [自然言語での指示（例: mainとの差分を表示して）]
 ---
 
-# my-user-review command
+# my-user-review
 
 Open git diff in browser using difit for visual code review.
 
