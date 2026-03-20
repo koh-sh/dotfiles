@@ -69,6 +69,26 @@ local key_bindings = {
                     window:set_config_overrides(overrides)
                 end),
             },
+            -- Paste with LF→CR conversion for lazysql (tview doesn't handle LF in bracketed paste)
+            {
+                key = 'v',
+                mods = 'SUPER',
+                action = wezterm.action_callback(function(window, pane)
+                    local process = pane:get_foreground_process_name() or ""
+                    if process:match("lazysql$") then
+                        local success, stdout = wezterm.run_child_process({ "pbpaste" })
+                        if success then
+                            local text = stdout:gsub("\n", "\r")
+                            window:perform_action(
+                                act.SendString("\x1b[200~" .. text .. "\x1b[201~"),
+                                pane
+                            )
+                        end
+                    else
+                        window:perform_action(act{ PasteFrom = "Clipboard" }, pane)
+                    end
+                end),
+            },
         }
     },
     -- Pane management
