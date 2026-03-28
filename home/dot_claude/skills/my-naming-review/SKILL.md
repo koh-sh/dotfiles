@@ -1,7 +1,7 @@
 ---
 description: Run naming convention and code style review using the naming-style-reviewer agent
 disable-model-invocation: true
-argument-hint: [scope: ファイルパスやディレクトリ（省略時はgit diff全体）]
+argument-hint: [scope: file path or directory (defaults to git diff)]
 ---
 
 # my-naming-review

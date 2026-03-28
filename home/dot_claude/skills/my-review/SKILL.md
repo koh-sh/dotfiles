@@ -1,7 +1,7 @@
 ---
 description: Run code review using code, complexity, test, and naming-style review agents
 disable-model-invocation: true
-argument-hint: [scope: ファイルパスやディレクトリ（省略時はgit diff全体）]
+argument-hint: [scope: file path or directory (defaults to git diff)]
 ---
 
 # my-review
