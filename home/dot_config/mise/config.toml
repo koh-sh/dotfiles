@@ -51,7 +51,7 @@ compile = false
 [tasks.bump]
 description = "Bump tools and packages"
 run = """
-brew update && brew upgrade
+brew update && brew upgrade && brew upgrade --casks
 brew upgrade --cask wezterm@nightly --greedy-latest
 mise up
 claude update
