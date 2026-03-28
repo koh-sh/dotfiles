@@ -1,11 +1,18 @@
 ---
 description: Run code review using code, complexity, test, and naming-style review agents
 disable-model-invocation: true
+argument-hint: [scope: ファイルパスやディレクトリ（省略時はgit diff全体）]
 ---
 
 # my-review
 
 Run code review using code, complexity, test, and naming-style review agents.
+
+## Review Scope
+
+$ARGUMENTS
+
+If no scope specified, use `git diff` to identify recently changed code.
 
 ## Workflow
 

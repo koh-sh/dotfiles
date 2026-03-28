@@ -18,7 +18,7 @@ description: |
   user: "Is this code too complex?"
   assistant: "I'll use the complexity-reviewer agent to analyze complexity."
   </example>
-tools: Glob, Grep, Read, Bash, WebFetch, TodoWrite, WebSearch
+tools: Glob, Grep, Read, Bash
 model: opus
 color: green
 ---

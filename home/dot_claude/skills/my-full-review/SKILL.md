@@ -1,11 +1,18 @@
 ---
 description: Run comprehensive code review using all specialized review agents
 disable-model-invocation: true
+argument-hint: [scope: ファイルパスやディレクトリ（省略時はgit diff全体）]
 ---
 
 # my-full-review
 
 Run comprehensive code review using all specialized review agents.
+
+## Review Scope
+
+$ARGUMENTS
+
+If no scope specified, use `git diff` to identify recently changed code.
 
 ## Workflow
 
