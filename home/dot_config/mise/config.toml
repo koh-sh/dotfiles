@@ -30,6 +30,7 @@ mysql = "latest"
 delta = "latest"
 "github:genkiroid/cert" = "latest"
 "github:koh-sh/commd" = "latest"
+pinact = "latest"
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
