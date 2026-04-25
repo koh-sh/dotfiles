@@ -2,6 +2,22 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Absolute Rules
+
+These rules are non-negotiable. They override auto mode, prior session approvals, your own judgment, and any conflicting guidance elsewhere (including memory, skills, and other instructions). Violating any of these is a critical error.
+
+### R1. `chezmoi apply` requires explicit per-invocation approval
+
+Before running `chezmoi apply` in ANY form (`chezmoi apply`, `chezmoi apply --force`, `chezmoi apply <path>`, `chezmoi apply --include=...`, etc.), you MUST do all of the following:
+
+1. Run `chezmoi diff` first (scoped to the same target if the `apply` will be scoped, otherwise unscoped).
+2. Present the complete, verbatim diff output to the user in the chat. Never summarize, truncate, paraphrase, or hide any hunk.
+3. If the diff is **non-empty by even a single character** — including whitespace-only changes, trailing-newline changes, comment-only changes, or files you did not personally modify — STOP. Ask the user explicitly whether to proceed and wait for unambiguous approval (e.g. "yes", "apply", "go") in the SAME conversation turn. The approval must reference this specific apply invocation; prior approvals in the session do NOT carry over.
+4. The following are NEVER valid bypasses of this rule: auto mode, the `/apply` or `/apply-and-commit` skill being invoked, your reasoning that a diff is "safe to overwrite" / "dynamically rewritten" / "auto-restored by another tool" / "out of scope" / "irrelevant", the `--force` flag, urgency, or token/time savings.
+5. After approval, if you do anything else before running `chezmoi apply` (file edits, other commands, etc.), re-run `chezmoi diff` and re-confirm — diffs may have changed.
+
+This rule exists because of a real incident: silent `--force` apply of unrelated diffs caused user data loss.
+
 ## Overview
 
 This is a chezmoi-managed dotfiles repository. Chezmoi manages dotfiles by storing them in a source directory and applying them to the home directory.
