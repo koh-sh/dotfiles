@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 3650,
+  "env": {
+    "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "600000"
+  },
   "permissions": {
     "allow": [
       "Bash(git status:*)",
@@ -107,7 +110,8 @@
       "Read(**/*.key)",
       "Write(//tmp/**)",
       "Edit(//tmp/**)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
     "PostToolUse": [
@@ -164,5 +168,7 @@
   "language": "日本語",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "voiceEnabled": true
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "remoteControlAtStartup": true
 }
