@@ -19,6 +19,7 @@ If no scope specified, use `git diff` to identify recently changed code.
 1. **Execute review agents** in parallel:
    - **my-code-reviewer**: Check functionality, performance, best practices, naming
    - **my-complexity-reviewer**: Check over-engineering, DRY violations, deep nesting
+   - **my-responsibility-reviewer**: Check separation of concerns, misplaced logic, reinvented utilities, abstraction level
    - **my-security-reviewer**: Check OWASP Top 10, auth, input validation
    - **my-test-reviewer**: Check test structure, meaningful tests, coverage
    - **my-doc-sync-reviewer**: Check README accuracy, documentation completeness
@@ -51,10 +52,12 @@ If no scope specified, use `git diff` to identify recently changed code.
    - 推奨: [どう修正すべきか]
 
 **検出件数**:
-| my-code-reviewer | my-complexity-reviewer | my-security-reviewer | my-test-reviewer | my-doc-sync-reviewer | my-naming-style-reviewer |
-|------------------|------------------------|----------------------|------------------|----------------------|--------------------------|
-| X件              | X件                    | X件                  | X件              | X件                  | X件                      |
+| my-code-reviewer | my-complexity-reviewer | my-responsibility-reviewer | my-security-reviewer | my-test-reviewer | my-doc-sync-reviewer | my-naming-style-reviewer |
+|------------------|------------------------|----------------------------|----------------------|------------------|----------------------|--------------------------|
+| X件              | X件                    | X件                        | X件                  | X件              | X件                  | X件                      |
 
 Notes:
 - Focus on recently changed code (use git diff)
 - Missing tests or outdated docs should be flagged as issues
+- For my-responsibility-reviewer findings, do NOT collapse the multiple options into a single 推奨. Keep the trade-off structure: present the 課題 (with concrete downside) and list the options (案A / 案B / ...) with their pros and cons. If space is tight in the summary, give a one-line option summary and refer the user to the agent's original output for the full trade-off analysis.
+- In the detection count table, my-responsibility-reviewer counts each 課題 (trade-off unit) as 1, where a single 課題 contains multiple options (案A / 案B / ...). Note that this granularity differs from other reviewers, where 1 finding corresponds to 1 fix.
