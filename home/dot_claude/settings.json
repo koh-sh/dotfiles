@@ -142,10 +142,6 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/smart-notify.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/stream-timeout-retry.sh"
           }
         ]
       }
