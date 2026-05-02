@@ -24,11 +24,12 @@ fi
 mkdir -p "$STATE_DIR"
 state_file="${STATE_DIR}/${session_id}.count"
 
-last=$(jq -rs 'last' "$transcript_path" 2>/dev/null)
+last=$(jq -rs 'map(select(.type == "assistant" and ((.isSidechain // false) | not))) | last' "$transcript_path" 2>/dev/null)
 is_error=$(printf '%s' "$last" | jq -r '.isApiErrorMessage // false')
 last_text=$(printf '%s' "$last" | jq -r '.message.content[0].text // ""')
 
-# Reset counter and exit unless the very latest message is a Stream idle timeout error.
+# Reset counter and exit unless the latest assistant turn ended with a Stream idle timeout error.
+# (System meta entries like turn_duration are appended after the error, so we cannot rely on the very last line.)
 if [ "$is_error" != "true" ] || ! printf '%s' "$last_text" | grep -q "Stream idle timeout"; then
   rm -f "$state_file"
   exit 0
