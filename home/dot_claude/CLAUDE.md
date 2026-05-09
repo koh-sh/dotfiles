@@ -15,6 +15,13 @@
 - Follow existing project conventions when editing files
 - Use meaningful variable and function names in English
 
+## Dependency Versions
+- When introducing a new language, framework, or library, always use the latest stable version
+- Do NOT rely on your training knowledge to determine what "latest" is; your knowledge cutoff means the version you remember is often outdated
+- Verify the current latest stable version by checking the authoritative source today (e.g., GitHub Releases, npm/PyPI/crates.io/Maven Central, official release notes)
+- Prefer stable releases over pre-release/RC/beta unless the user explicitly opts in
+- This rule applies when adding a new dependency, not when matching versions already pinned in the project
+
 ## Git Workflow
 - Commit messages: Use Conventional Commits format
 - Keep each commit focused on a single concern; do not mix unrelated changes
