@@ -17,15 +17,15 @@ bun = "latest"
 uv = "latest"
 neovim = "latest"
 "pipx:ansible" = "latest"
-"github:koh-sh/ccnewline" = "latest"
-"github:koh-sh/codebuild-multirunner" = "latest"
-"github:koh-sh/apcdeploy" = "latest"
+"github:koh-sh/ccnewline" = { version = "latest", minimum_release_age = "0d" }
+"github:koh-sh/codebuild-multirunner" = { version = "latest", minimum_release_age = "0d" }
+"github:koh-sh/apcdeploy" = { version = "latest", minimum_release_age = "0d" }
 fnox = "latest"
 "github:jorgerojas26/lazysql" = "latest"
 mysql = "latest"
 delta = "latest"
 "github:genkiroid/cert" = "latest"
-"github:koh-sh/commd" = "latest"
+"github:koh-sh/commd" = { version = "latest", minimum_release_age = "0d" }
 pinact = "latest"
 "github:koki-develop/ghasec" = "latest"
 "github:charmbracelet/vhs" = "latest"
@@ -43,7 +43,7 @@ idiomatic_version_file_enable_tools = [
   "terraform",
 ]
 experimental = true
-install_before = "3d"
+minimum_release_age = "3d"
 
 [settings.python]
 compile = false
