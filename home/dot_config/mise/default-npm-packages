@@ -1,0 +1,4 @@
+@commitlint/cli
+@commitlint/config-conventional
+secretlint
+@secretlint/secretlint-rule-preset-recommend
