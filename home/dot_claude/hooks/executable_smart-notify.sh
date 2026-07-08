@@ -2,6 +2,13 @@
 # Smart notification script for Claude Code hooks
 # Plays sound if volume > 0, otherwise shows macOS notification
 
+# Skip when there's no controlling terminal (e.g. `claude -p`, cron, CI).
+# Wrapped in `sh -c` since `:` is a special builtin — POSIX shells exit
+# entirely (not just the command) if its redirection fails.
+if ! sh -c ': < /dev/tty' 2>/dev/null; then
+    exit 0
+fi
+
 # Read JSON input from stdin (Claude Code hooks specification)
 input_json=$(cat)
 
