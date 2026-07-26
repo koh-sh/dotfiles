@@ -28,7 +28,6 @@
 - Never force push to main/master without explicit permission
 
 ## Safety Rules
-- Never create files outside the project directory (e.g., /tmp); keep all files within the project scope
 - Never execute destructive commands (rm -rf, dd, mkfs) without confirmation
 - Never commit secrets, API keys, or credentials
 - Never modify system files or use sudo without explicit request

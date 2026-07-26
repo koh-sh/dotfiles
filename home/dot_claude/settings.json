@@ -107,9 +107,7 @@
       "Read(~/.cache)",
       "Read(~/.cache/**)",
       "Read(**/*.pem)",
-      "Read(**/*.key)",
-      "Write(//tmp/**)",
-      "Edit(//tmp/**)"
+      "Read(**/*.key)"
     ],
     "defaultMode": "auto"
   },
