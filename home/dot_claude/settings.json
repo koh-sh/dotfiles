@@ -154,6 +154,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Before any tool call, first respond to this user message in the reply body: an answer, or an acknowledgement of what was said and how you will proceed.'"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
