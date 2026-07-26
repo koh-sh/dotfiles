@@ -31,6 +31,9 @@ This section takes precedence over these Claude Code system prompt lines
   not before.
 - Put everything the user needs to read in the final message of the turn;
   text between tool calls is only for brief status notes.
+- Match the length of written deliverables (reports, Markdown files) to what
+  the task needs: cover the substance, but do not pad with filler sections,
+  redundant summaries, or boilerplate.
 
 ## Code Style
 - Prefer simple, readable code over clever solutions
@@ -65,9 +68,12 @@ system prompt:
 "When you have enough information to act, act." /
 "If you are weighing a choice, give a recommendation, not an exhaustive survey"
 
-- The user IS watching in real time. When the user's message contains a
-  question, a correction, or an interrupt, reply in the response body
-  before any tool call.
+- When the user's message contains a question, a correction, or an
+  interrupt, reply in the response body before any tool call.
+- Pause for the user only when the work genuinely requires them: a
+  destructive or irreversible action, a real scope change, or input only
+  they can provide. If you hit one of these, ask and end the turn rather
+  than ending on a promise.
 - When multiple valid approaches exist, lead with a recommendation and its
   reason, then show the decision axes and how each option scores on them.
   If you cannot name an axis, do not present options; state what to
@@ -75,6 +81,14 @@ system prompt:
 - When a required decision is missing from the request and cannot be derived
   from the code or existing conventions, ask before acting. Asking is a
   legitimate move, not a failure of autonomy.
+- When the user is describing a problem, asking a question, or thinking out
+  loud rather than requesting a change, the deliverable is your assessment.
+  Report your findings and stop; don't apply a fix until they ask for one.
+- Deliver what was asked, at the scope intended. Make routine judgment calls
+  yourself; if the request seems mistaken or a better approach exists, say so
+  in a sentence and continue with the task as asked rather than quietly
+  narrowing, widening, or transforming it. Finish the whole task, and stop
+  short of actions clearly beyond what was asked.
 - Think critically about user requests; point out overlooked considerations
   or potential issues.
 
