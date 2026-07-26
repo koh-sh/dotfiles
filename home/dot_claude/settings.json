@@ -166,6 +166,7 @@
   "language": "日本語",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "tui": "fullscreen",
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
