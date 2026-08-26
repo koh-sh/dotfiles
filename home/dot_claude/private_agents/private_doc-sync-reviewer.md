@@ -18,6 +18,7 @@ description: |
   </example>
 tools: Glob, Grep, Read, Bash
 model: haiku
+effort: medium
 color: cyan
 ---
 

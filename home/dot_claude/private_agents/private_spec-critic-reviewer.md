@@ -20,6 +20,7 @@ description: |
   </example>
 tools: Glob, Grep, Read, Bash, WebFetch, WebSearch
 model: opus
+effort: high
 color: magenta
 ---
 

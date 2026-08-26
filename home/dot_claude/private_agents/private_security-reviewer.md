@@ -19,6 +19,7 @@ description: |
   </example>
 tools: Glob, Grep, Read, Bash, WebSearch
 model: sonnet
+effort: high
 color: red
 ---
 

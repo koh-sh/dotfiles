@@ -34,6 +34,7 @@ description: |
   </example>
 tools: Glob, Grep, Read, Bash
 model: opus
+effort: high
 color: purple
 ---
 
