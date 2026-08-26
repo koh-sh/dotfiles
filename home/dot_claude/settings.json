@@ -109,6 +109,10 @@
       "Read(**/*.pem)",
       "Read(**/*.key)"
     ],
+    "ask": [
+      "Bash(git push --force*)",
+      "Bash(git push -f *)"
+    ],
     "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
