@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+    "terminal_init_command": ""
+  },
+  "prettier": {
+    "parser": ""
+  },
   "restore_on_startup": "empty_tab",
   "on_last_window_closed": "quit_app",
   "disable_ai": false,
@@ -25,10 +34,11 @@
     "git_status": true,
   },
   "title_bar": {
+    "show_branch_status_icon": true,
     "show_menus": false,
-    "show_branch_icon": true,
   },
   "project_panel": {
+    "dock": "left",
     "file_icons": true,
     "button": true,
   },
