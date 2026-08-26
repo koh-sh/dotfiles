@@ -180,6 +180,7 @@
   "effortLevel": "xhigh",
   "tui": "fullscreen",
   "remoteControlAtStartup": true,
+  "outputStyle": "Concise",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }

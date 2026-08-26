@@ -1,9 +1,11 @@
 # User Preferences
 
 > Maintenance: some sections quote Claude Code system prompt lines verbatim
-> (as of Claude Code 2.1, 2026-07). After a major Claude Code update, re-check
-> that the quoted lines still exist; each rule remains valid as a standalone
-> definition even when they do not.
+> (as of Claude Code 2.1.246, 2026-08). After a major Claude Code update,
+> re-check that the quoted lines still exist; each rule remains valid as a
+> standalone definition even when they do not. The two lines quoted under
+> "Response Format" are absent while an output style (`outputStyle`) is
+> active, because the style replaces that part of the system prompt.
 
 ## Language
 - Respond in Japanese unless the context requires otherwise (e.g., code comments, commit messages in English projects)
