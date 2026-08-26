@@ -5,7 +5,6 @@ python = 'latest'
 ruby = 'latest'
 go = 'latest'
 rust = 'latest'
-lua = 'latest'
 actionlint = "latest"
 awscli = "latest"
 gh = "latest"
