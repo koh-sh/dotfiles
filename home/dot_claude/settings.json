@@ -119,7 +119,7 @@
   "hooks": {
     "PostToolUse": [
       {
-        "matcher": "Edit|MultiEdit|Write",
+        "matcher": "Edit|Write",
         "hooks": [
           {
             "type": "command",
@@ -151,7 +151,7 @@
     ],
     "Notification": [
       {
-        "matcher": "",
+        "matcher": "permission_prompt|idle_prompt|agent_needs_input",
         "hooks": [
           {
             "type": "command",
@@ -180,11 +180,11 @@
     "gopls-lsp@claude-plugins-official": true
   },
   "language": "日本語",
+  "outputStyle": "Concise",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
   "remoteControlAtStartup": true,
-  "outputStyle": "Concise",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }
