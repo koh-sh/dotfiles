@@ -43,6 +43,7 @@ idiomatic_version_file_enable_tools = [
 ]
 experimental = true
 minimum_release_age = "3d"
+idiomatic_version_file_ignore_minimum_versions = true
 
 [settings.python]
 compile = false
