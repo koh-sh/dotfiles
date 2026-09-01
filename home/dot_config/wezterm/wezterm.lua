@@ -59,8 +59,8 @@ local key_bindings = {
         category = "System",
         bindings = {
             { key = "¥", mods = 'NONE', action = act.SendKey { key = '\\' } },
-            { key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
-            { key = 'R', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+            { key = "Enter", mods = "SHIFT", action = act.SendString "\x1b\r" },
+            { key = 'R', mods = 'CTRL', action = act.ShowDebugOverlay },
             {
                 key = 's',
                 mods = 'SUPER',
@@ -90,7 +90,7 @@ local key_bindings = {
                             )
                         end
                     else
-                        window:perform_action(act{ PasteFrom = "Clipboard" }, pane)
+                        window:perform_action(act.PasteFrom "Clipboard", pane)
                     end
                 end),
             },
@@ -101,8 +101,8 @@ local key_bindings = {
         category = "Pane",
         bindings = {
             { key = "w", mods = "SUPER",       action = act.CloseCurrentPane { confirm = true } },
-            { key = "d", mods = "SUPER",       action = act { SplitHorizontal = { domain = "CurrentPaneDomain" } } },
-            { key = "d", mods = "SUPER|SHIFT", action = act { SplitVertical = { domain = "CurrentPaneDomain" } } },
+            { key = "d", mods = "SUPER",       action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
+            { key = "d", mods = "SUPER|SHIFT", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
             { key = "o", mods = "SUPER|CTRL",  action = act.RotatePanes 'Clockwise' },
             { key = '[', mods = 'SUPER',       action = act.ActivatePaneDirection 'Prev' },
             { key = ']', mods = 'SUPER',       action = act.ActivatePaneDirection 'Next' },
@@ -112,7 +112,7 @@ local key_bindings = {
     {
         category = "Tab",
         bindings = {
-            { key = 't', mods = 'SUPER', action = act { SpawnCommandInNewTab = { cwd = wezterm.home_dir } } },
+            { key = 't', mods = 'SUPER', action = act.SpawnCommandInNewTab { cwd = wezterm.home_dir } },
         }
     },
     -- Search functionality
