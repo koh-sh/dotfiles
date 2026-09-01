@@ -311,6 +311,64 @@ local function setup_pane_mover(config)
 end
 
 -----------------------------------------------------------
+-- PR Review Launcher (clipboard PR URL -> checkout + claude)
+-----------------------------------------------------------
+local function setup_pr_review_launcher(config)
+    local repos_root = wezterm.home_dir .. '/github/'
+
+    local function launch_pr_review()
+        return wezterm.action_callback(function(window, pane)
+            local success, clipboard = wezterm.run_child_process { 'pbpaste' }
+            if not success then
+                window:toast_notification('wezterm', 'Failed to read clipboard', nil, 3000)
+                return
+            end
+
+            local owner, repo, number = clipboard:match('github%.com/([%w%.%-_]+)/([%w%.%-_]+)/pull/(%d+)')
+            if not owner then
+                window:toast_notification('wezterm', 'No GitHub PR URL in clipboard', nil, 3000)
+                return
+            end
+
+            local repo_dir = repos_root .. repo
+            -- Rebuild a canonical URL so extra path segments (/files etc.) are dropped
+            local url = string.format('https://github.com/%s/%s/pull/%s', owner, repo, number)
+            local checkout_cmd = string.format('gh pr checkout %s && claude', url)
+
+            local dir_exists = wezterm.run_child_process { 'test', '-d', repo_dir }
+            local spawn_cwd = repo_dir
+            local cmd
+            if not dir_exists then
+                -- No local clone: ask in the new tab whether to clone first
+                spawn_cwd = repos_root
+                cmd = string.format('printf \'Clone %s/%s into %s? [y/N] \'; read ans; ', owner, repo, repo_dir)
+                    .. string.format('if [ "$ans" = "y" ]; then gh repo clone %s/%s %s && cd %s && %s; fi',
+                        owner, repo, repo_dir, repo_dir, checkout_cmd)
+            else
+                local _, status_out, _ = wezterm.run_child_process { 'git', '-C', repo_dir, 'status', '--porcelain' }
+                if status_out and status_out ~= '' then
+                    -- Dirty tree: show git status in the new tab and ask before stashing
+                    cmd = 'git status; printf \'Stash and continue? [y/N] \'; read ans; '
+                        .. string.format('if [ "$ans" = "y" ]; then git stash push -u && %s; fi', checkout_cmd)
+                else
+                    cmd = checkout_cmd
+                end
+            end
+
+            local _, new_pane, _ = window:mux_window():spawn_tab { cwd = spawn_cwd }
+            new_pane:send_text(cmd .. '\r')
+        end)
+    end
+
+    -- g for GitHub
+    table.insert(config.keys, {
+        key = 'g',
+        mods = 'SUPER',
+        action = launch_pr_review(),
+    })
+end
+
+-----------------------------------------------------------
 -- Apply all configurations
 -----------------------------------------------------------
 local function apply_config(config)
@@ -318,6 +376,7 @@ local function apply_config(config)
     setup_general(config)
     setup_key_bindings(config)
     setup_pane_mover(config)
+    setup_pr_review_launcher(config)
     setup_search_mode(config)
     setup_tab_bar(config)
     setup_theme_rotator_plugin(config)
