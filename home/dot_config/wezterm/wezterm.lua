@@ -204,12 +204,120 @@ local function setup_tab_bar(config)
 end
 
 -----------------------------------------------------------
+-- Pane Mover (move the focused pane into another tab)
+-----------------------------------------------------------
+local function setup_pane_mover(config)
+    local wezterm_bin = wezterm.executable_dir .. '/wezterm'
+
+    local function run_cli(args)
+        local success, _, stderr = wezterm.run_child_process(args)
+        if not success then
+            wezterm.log_error('wezterm cli failed: ' .. stderr)
+        end
+        return success
+    end
+
+    local function move_pane()
+        return wezterm.action_callback(function(window, pane)
+            local moving_pane_id = pane:pane_id()
+            local current_tab_id = pane:tab():tab_id()
+
+            -- One row per tab x direction, so a single pick decides both
+            local choices = {}
+            for _, entry in ipairs(window:mux_window():tabs_with_info()) do
+                local tab = entry.tab
+                local panes = tab:panes()
+                local only_moving_pane = #panes == 1 and panes[1]:pane_id() == moving_pane_id
+                if not only_moving_pane then
+                    local title = tab:get_title()
+                    if title == nil or title == '' then
+                        title = tab:active_pane():get_title()
+                    end
+                    local marker = ''
+                    if tab:tab_id() == current_tab_id then
+                        marker = '  [current tab]'
+                    end
+
+                    -- Split target: the tab's active pane, but never the moving pane itself
+                    local target = tab:active_pane()
+                    if target:pane_id() == moving_pane_id then
+                        for _, other in ipairs(panes) do
+                            if other:pane_id() ~= moving_pane_id then
+                                target = other
+                                break
+                            end
+                        end
+                    end
+
+                    for _, dir in ipairs({
+                        { flag = '--right', text = '\u{2192} right' },
+                        { flag = '--bottom', text = '\u{2193} bottom' },
+                        { flag = '--left', text = '\u{2190} left' },
+                        { flag = '--top', text = '\u{2191} top' },
+                    }) do
+                        table.insert(choices, {
+                            -- id carries both the split target and the direction
+                            id = string.format('%d %s', target:pane_id(), dir.flag),
+                            label = string.format('%d: %s  %s%s',
+                                entry.index + 1, title, dir.text, marker),
+                        })
+                    end
+                end
+            end
+
+            if #choices == 0 then
+                window:toast_notification('wezterm', 'No tab to move the pane into', nil, 3000)
+                return
+            end
+
+            window:perform_action(
+                act.InputSelector {
+                    title = 'Move pane',
+                    description = 'Select destination tab and direction',
+                    fuzzy_description = 'Move pane to: ',
+                    fuzzy = true,
+                    choices = choices,
+                    action = wezterm.action_callback(function(_, _, id)
+                        if not id then
+                            return
+                        end
+                        local target_pane_id, direction = id:match('^(%d+) (%-%-%a+)$')
+                        if not target_pane_id then
+                            return
+                        end
+                        local ok = run_cli {
+                            wezterm_bin, 'cli', 'split-pane',
+                            '--top-level', direction,
+                            '--pane-id', target_pane_id,
+                            '--move-pane-id', tostring(moving_pane_id),
+                        }
+                        if ok then
+                            -- follow the moved pane
+                            run_cli { wezterm_bin, 'cli', 'activate-pane', '--pane-id', tostring(moving_pane_id) }
+                        end
+                    end),
+                },
+                pane
+            )
+        end)
+    end
+
+    -- Overrides the default SUPER+m Hide (minimize) assignment
+    table.insert(config.keys, {
+        key = 'm',
+        mods = 'SUPER',
+        action = move_pane(),
+    })
+end
+
+-----------------------------------------------------------
 -- Apply all configurations
 -----------------------------------------------------------
 local function apply_config(config)
     setup_visuals(config)
     setup_general(config)
     setup_key_bindings(config)
+    setup_pane_mover(config)
     setup_search_mode(config)
     setup_tab_bar(config)
     setup_theme_rotator_plugin(config)
