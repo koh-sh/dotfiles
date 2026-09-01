@@ -9,6 +9,9 @@ config:set_strict_mode(true)
 -- Visual Settings
 -----------------------------------------------------------
 local function setup_visuals(config)
+    -- Render via Metal (wgpu) instead of the deprecated OpenGL path;
+    -- avoids glium viewport panic on wake from sleep on macOS Tahoe
+    config.front_end = 'WebGpu'
     config.color_scheme = 'Adventure'
     config.font = wezterm.font('JetBrains Mono', { weight = 'ExtraBold', italic = false })
     config.font_size = 12.2
