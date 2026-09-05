@@ -35,6 +35,8 @@ end
 -----------------------------------------------------------
 local function setup_general(config)
     config.notification_handling = "NeverShow"
+    -- Let apps opt in to the kitty keyboard protocol (e.g. Shift+Enter newline in grok CLI)
+    config.enable_kitty_keyboard = true
     config.enable_scroll_bar = true
     config.scrollback_lines = 10000000
 end
