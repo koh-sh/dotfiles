@@ -115,7 +115,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "fable[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -179,8 +179,8 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true
   },
-  "language": "日本語",
   "outputStyle": "Concise",
+  "language": "日本語",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
