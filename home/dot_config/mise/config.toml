@@ -48,11 +48,68 @@ idiomatic_version_file_ignore_minimum_versions = true
 [settings.python]
 compile = false
 
+[bootstrap.packages]
+"brew:ccat" = "latest"
+"brew:chezmoi" = "latest"
+"brew:fd" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:git" = "latest"
+"brew:htop" = "latest"
+"brew:jq" = "latest"
+"brew:less" = "latest"
+"brew:mas" = "latest"
+"brew:nkf" = "latest"
+"brew:pwgen" = "latest"
+"brew:tig" = "latest"
+"brew:tree" = "latest"
+"brew:ttyd" = "latest"
+"brew:watch" = "latest"
+"brew:wget" = "latest"
+"brew:zsh" = "latest"
+"brew:zsh-completions" = "latest"
+"brew-cask:amical" = "latest"
+"brew-cask:claude" = "latest"
+"brew-cask:firefox" = "latest"
+"brew-cask:google-chrome" = "latest"
+"brew-cask:hammerspoon" = "latest"
+"brew-cask:karabiner-elements" = "latest"
+"brew-cask:keyboardcleantool" = "latest"
+"brew-cask:raycast" = "latest"
+"brew-cask:rectangle" = "latest"
+"brew-cask:showyedge" = "latest"
+"brew-cask:slack" = "latest"
+"brew-cask:wezterm@nightly" = "latest"
+"brew-cask:zed" = "latest"
+"brew-cask:zoom" = "latest"
+
+[bootstrap.macos.dock]
+autohide = true
+orientation = "left"
+tilesize = 16
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+
+[bootstrap.macos.defaults]
+NSGlobalDomain = { NSQuitAlwaysKeepsWindows = true, AppleKeyboardUIMode = 2 }
+"com.apple.dock" = { showAppExposeGestureEnabled = true, showAppExposeGesture = 2 }
+"com.apple.menuextra.battery" = { ShowPercent = "YES" }
+"com.apple.screensaver" = { askForPassword = 1, askForPasswordDelay = 0 }
+"com.apple.BezelServices" = { kDim = false }
+"com.apple.HIToolbox" = { AppleDictationAutoEnable = 0 }
+"com.apple.Safari" = { AlwaysRestoreSessionAtLaunch = true, ShowFullURLInSmartSearchField = true }
+"com.microsoft.VSCode" = { ApplePressAndHoldEnabled = false }
+
+[bootstrap.hooks.post-defaults]
+run = "killall Dock ControlCenter SystemUIServer || true"
+
 [tasks.bump]
 description = "Bump tools and packages"
 run = """
 brew update && brew upgrade && brew upgrade --casks
 brew upgrade --cask wezterm@nightly --greedy-latest
+mise bootstrap packages upgrade --manager brew-cask --yes
+mise self-update --yes
 mise up
 claude update
 """

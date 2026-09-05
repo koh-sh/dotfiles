@@ -55,3 +55,29 @@ chezmoi dump-config
 ## Managed Configurations
 
 Located in `home/dot_config/`: git, hammerspoon, irb, mise, npm, nvim, tig, tmux, vim, wezterm, xonsh, zsh
+
+## mise bootstrap (Homebrew packages and macOS defaults)
+
+Homebrew formulae, casks, Mac App Store apps and macOS `defaults` are declared
+in `home/dot_config/mise/config.toml` under `[bootstrap.packages]` and
+`[bootstrap.macos.*]`, and checked with `mise bootstrap packages status` /
+`mise bootstrap macos defaults status`.
+
+- **Two-file split.** `config.toml` holds only entries wanted on every machine
+  (private and work). Machine-specific entries live in
+  `~/.config/mise/config.local.toml`, which is deliberately NOT managed by
+  chezmoi or this repository (work-only packages cannot be published). Do not
+  reintroduce `config.<env>.toml` / `MISE_ENV` branching; that approach was
+  rejected.
+- **Claude Code cannot read `config.local.toml` or run `brew`** (deny rules,
+  intentionally kept). Show the exact TOML or command for the user to apply.
+- **Homebrew stays installed.** It owns the existing casks and all upgrades
+  (`mise run bump`), and is the fallback for casks mise cannot install. Do not
+  transfer cask ownership to mise.
+- **Prune is destructive.** `mise bootstrap packages prune --manager brew`
+  removes every formula not declared in the loaded configs. Always run
+  `--dry-run` first and show the list before pruning.
+- **Unsupported casks must not be declared.** mise cannot install casks with
+  sudo installer scripts or manual installers (e.g. `logi-options+`,
+  `logitune`), and a single such entry makes `packages status` fail entirely.
+  Those apps stay manually installed.
