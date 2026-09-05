@@ -44,6 +44,30 @@ local function setup_general(config)
 end
 
 -----------------------------------------------------------
+-- Mouse Bindings
+-----------------------------------------------------------
+-- Keep native mouse behavior (link open, select, copy, paste) even when an app
+-- such as Claude Code captures the mouse. Wheel events are intentionally not
+-- listed so they still reach the app for in-app scrolling.
+local function setup_mouse_bindings(config)
+    local function native(event, action)
+        return { event = event, mods = 'NONE', mouse_reporting = true, action = action }
+    end
+    config.mouse_bindings = {
+        native({ Down = { streak = 1, button = 'Left' } }, act.SelectTextAtMouseCursor 'Cell'),
+        native({ Down = { streak = 2, button = 'Left' } }, act.SelectTextAtMouseCursor 'Word'),
+        native({ Down = { streak = 3, button = 'Left' } }, act.SelectTextAtMouseCursor 'Line'),
+        native({ Drag = { streak = 1, button = 'Left' } }, act.ExtendSelectionToMouseCursor 'Cell'),
+        native({ Drag = { streak = 2, button = 'Left' } }, act.ExtendSelectionToMouseCursor 'Word'),
+        native({ Drag = { streak = 3, button = 'Left' } }, act.ExtendSelectionToMouseCursor 'Line'),
+        native({ Up = { streak = 1, button = 'Left' } }, act.CompleteSelectionOrOpenLinkAtMouseCursor 'ClipboardAndPrimarySelection'),
+        native({ Up = { streak = 2, button = 'Left' } }, act.CompleteSelection 'ClipboardAndPrimarySelection'),
+        native({ Up = { streak = 3, button = 'Left' } }, act.CompleteSelection 'ClipboardAndPrimarySelection'),
+        native({ Down = { streak = 1, button = 'Middle' } }, act.PasteFrom 'PrimarySelection'),
+    }
+end
+
+-----------------------------------------------------------
 -- Key Bindings
 -----------------------------------------------------------
 local function setup_key_bindings(config)
@@ -52,6 +76,9 @@ local function setup_key_bindings(config)
         { key = "¥", mods = 'NONE', action = act.SendKey { key = '\\' } },
         { key = "Enter", mods = "SHIFT", action = act.SendString "\x1b\r" },
         { key = 'R', mods = 'CTRL', action = act.ShowDebugOverlay },
+        -- Send Ctrl+End / Ctrl+Home, which MacBook keyboards cannot type (Fn+arrow is taken by macOS)
+        { key = 'DownArrow', mods = 'SUPER', action = act.SendKey { key = 'End', mods = 'CTRL' } },
+        { key = 'UpArrow', mods = 'SUPER', action = act.SendKey { key = 'Home', mods = 'CTRL' } },
         {
             key = 's',
             mods = 'SUPER',
@@ -337,6 +364,7 @@ end
 local function apply_config(config)
     setup_visuals(config)
     setup_general(config)
+    setup_mouse_bindings(config)
     setup_key_bindings(config)
     setup_pane_mover(config)
     setup_pr_review_launcher(config)
