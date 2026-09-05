@@ -1,0 +1,147 @@
+default_auto_mode = true
+
+[storage]
+cleanup_ttl_days = 3650
+
+[models]
+default_reasoning_effort = "xhigh"
+
+[permission]
+allow = [
+    "Bash(git status:*)",
+    "Bash(git diff:*)",
+    "Bash(git log:*)",
+    "Bash(git branch:*)",
+    "Bash(git show:*)",
+    "Bash(git remote:*)",
+    "Bash(git fetch:*)",
+    "Bash(git ls-files:*)",
+    "Bash(git rev-parse:*)",
+    "Bash(gh pr list:*)",
+    "Bash(gh pr view:*)",
+    "Bash(gh pr status:*)",
+    "Bash(gh pr diff:*)",
+    "Bash(gh pr checks:*)",
+    "Bash(gh issue list:*)",
+    "Bash(gh issue view:*)",
+    "Bash(gh issue status:*)",
+    "Bash(gh repo view:*)",
+    "Bash(gh repo list:*)",
+    "Bash(gh run list:*)",
+    "Bash(gh run view:*)",
+    "Bash(gh workflow list:*)",
+    "Bash(gh workflow view:*)",
+    "Bash(gh release list:*)",
+    "Bash(gh release view:*)",
+    "Bash(gh search:*)",
+    "Bash(gh auth status:*)",
+    "Bash(go version:*)",
+    "Bash(go env:*)",
+    "Bash(go list:*)",
+    "Bash(go mod graph:*)",
+    "Bash(go mod verify:*)",
+    "Bash(go vet:*)",
+    "Bash(gofmt:*)",
+    "Bash(ls:*)",
+    "Bash(pwd)",
+    "Bash(which:*)",
+    "Bash(date)",
+    "Bash(whoami)",
+    "WebSearch",
+]
+deny = [
+    "Bash(sudo:*)",
+    "Bash(su :*)",
+    "Bash(su)",
+    "Bash(pkexec:*)",
+    "Bash(doas:*)",
+    "Bash(brew:*)",
+    "Bash(rm -rf:*)",
+    "Bash(rm -fr:*)",
+    "Bash(rm -r /:*)",
+    "Bash(rm -rf /:*)",
+    "Bash(dd:*)",
+    "Bash(mkfs:*)",
+    "Bash(fdisk:*)",
+    "Bash(parted:*)",
+    "Bash(format:*)",
+    "Bash(shutdown:*)",
+    "Bash(reboot:*)",
+    "Bash(halt:*)",
+    "Bash(poweroff:*)",
+    "Bash(init:*)",
+    "Bash(systemctl poweroff:*)",
+    "Bash(systemctl reboot:*)",
+    "Bash(chmod 777:*)",
+    "Bash(chmod -R 777:*)",
+    "Bash(chown -R:*)",
+    "Bash(> /dev/sda:*)",
+    "Bash(mv /:*)",
+    "Bash(nc -e:*)",
+    "Bash(ncat -e:*)",
+    "Bash(bash -i >& /dev/tcp:*)",
+    "Bash(useradd:*)",
+    "Bash(userdel:*)",
+    "Bash(usermod:*)",
+    "Bash(groupadd:*)",
+    "Bash(groupdel:*)",
+    "Bash(passwd:*)",
+    "Bash(visudo:*)",
+    "Bash(iptables -F:*)",
+    "Bash(ufw disable:*)",
+    "Bash(firewall-cmd --remove:*)",
+    "Bash(history -c:*)",
+    "Bash(shred:*)",
+    "Bash(xmrig:*)",
+    "Bash(cryptominer:*)",
+    "Bash(coinhive:*)",
+    "Bash(git -C:*)",
+    "Read(.env)",
+    "Read(.env.*)",
+    "Read(**/.env)",
+    "Read(**/.env.*)",
+    "Read(.envrc)",
+    "Read(**/.envrc)",
+    "Read(~/.config)",
+    "Read(~/.config/**)",
+    "Read({{ .chezmoi.homeDir }}/.config)",
+    "Read({{ .chezmoi.homeDir }}/.config/**)",
+    "Read(~/.local)",
+    "Read(~/.local/**)",
+    "Read({{ .chezmoi.homeDir }}/.local)",
+    "Read({{ .chezmoi.homeDir }}/.local/**)",
+    "Read(~/.cache)",
+    "Read(~/.cache/**)",
+    "Read({{ .chezmoi.homeDir }}/.cache)",
+    "Read({{ .chezmoi.homeDir }}/.cache/**)",
+    "Read(**/*.pem)",
+    "Read(**/*.key)",
+]
+ask = [
+    "Bash(git push --force*)",
+    "Bash(git push -f *)",
+]
+
+[cli]
+installer = "internal"
+
+[marketplace]
+default_skills_installs_purged = true
+official_marketplace_auto_installed = true
+
+[[marketplace.sources]]
+name = "xAI Official"
+git = "https://github.com/xai-org/plugin-marketplace.git"
+
+[ui]
+max_thoughts_width = 120
+fork_secondary_model = "grok-4.6"
+yolo = false
+compact_mode = false
+screen_mode = "fullscreen"
+show_timeline = true
+permission_mode = "auto"
+keep_text_selection = "word_select"
+
+[privacy]
+privacy_banner_acked = "2026-09-05T01:59:09Z"
