@@ -116,27 +116,6 @@
   },
   "model": "opus",
   "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "ccnewline"
-          }
-        ]
-      },
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "commd cchook",
-            "timeout": 600
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "matcher": "",
