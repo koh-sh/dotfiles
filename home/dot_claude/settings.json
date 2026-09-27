@@ -73,7 +73,6 @@
       "Bash(chmod -R 777:*)",
       "Bash(chown -R:*)",
       "Bash(> /dev/sda:*)",
-      "Bash(mv /* :*)",
       "Bash(mv / :*)",
       "Bash(nc -e:*)",
       "Bash(ncat -e:*)",
