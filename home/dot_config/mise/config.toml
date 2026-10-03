@@ -67,6 +67,7 @@ compile = false
 "brew:wget" = "latest"
 "brew:zsh" = "latest"
 "brew:zsh-completions" = "latest"
+"brew:bash" = "latest"
 "brew-cask:amical" = "latest"
 "brew-cask:claude" = "latest"
 "brew-cask:firefox" = "latest"
