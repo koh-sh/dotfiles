@@ -48,6 +48,9 @@ idiomatic_version_file_ignore_minimum_versions = true
 [settings.python]
 compile = false
 
+[settings.self_update]
+auto = true
+
 [bootstrap.packages]
 "brew:ccat" = "latest"
 "brew:chezmoi" = "latest"
@@ -110,7 +113,6 @@ run = """
 brew update && brew upgrade && brew upgrade --casks
 brew upgrade --cask wezterm@nightly --greedy-latest
 mise bootstrap packages upgrade --manager brew-cask --yes
-mise self-update --yes
 mise up
 claude update
 """
