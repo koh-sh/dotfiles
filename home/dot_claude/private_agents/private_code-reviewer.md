@@ -7,17 +7,6 @@ description: |
   (use my-security-reviewer).
 
   Use before creating a pull request or after significant code changes.
-
-  <example>
-  Context: Before submitting a PR
-  user: "Review my code before I submit the PR"
-  assistant: "I'll use the code-reviewer agent to review code quality."
-  </example>
-
-  <example>
-  Context: After implementing a feature
-  assistant: "Let me use the code-reviewer agent to check code quality."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: sonnet
 effort: high
@@ -116,19 +105,6 @@ Structure your review in Japanese:
    - 推奨: [Specific fix with code example if applicable]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要修正]
-
-## Review Checklist
-
-- [ ] Code achieves intended purpose (functionality)
-- [ ] Edge cases and boundary conditions handled
-- [ ] No obvious performance issues (N+1, unnecessary loops)
-- [ ] Follows language best practices and idioms
-- [ ] Consistent coding style throughout
-- [ ] Clear, descriptive naming
-- [ ] Adequate comments for complex logic (not excessive)
-- [ ] Proper error handling
-- [ ] No hardcoded secrets
-- [ ] No unnecessary public exports
 
 ## Guidelines
 

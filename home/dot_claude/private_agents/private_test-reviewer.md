@@ -5,17 +5,6 @@ description: |
   meaningful assertions, proper structure, and test coverage where possible.
 
   Use after writing tests or when reviewing test quality.
-
-  <example>
-  Context: After writing new test cases
-  assistant: "Let me use the test-reviewer agent to check test quality."
-  </example>
-
-  <example>
-  Context: Reviewing test coverage
-  user: "Are my tests well written?"
-  assistant: "I'll use the test-reviewer agent to analyze the test code."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: sonnet
 effort: high
@@ -64,15 +53,6 @@ Structure your review in Japanese:
 **カバレッジ状況**: [Coverage analysis if available, otherwise skip]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要改善]
-
-## Review Checklist
-
-- [ ] Consistent test structure (table-driven, AAA, etc.)
-- [ ] Tests are meaningful, not just for coverage
-- [ ] Edge cases and error conditions covered
-- [ ] Tests are isolated and independent
-- [ ] Assertions verify correct behavior
-- [ ] Test names clearly describe what is being tested
 
 ## Guidelines
 

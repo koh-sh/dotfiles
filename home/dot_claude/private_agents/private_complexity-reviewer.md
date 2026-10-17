@@ -6,18 +6,6 @@ description: |
   that could benefit from simplification.
 
   Use PROACTIVELY after writing or modifying code to catch over-engineering.
-
-  <example>
-  Context: After Claude Code generates new code
-  assistant: "Let me use the complexity-reviewer agent to check for
-  over-engineering and unnecessary complexity."
-  </example>
-
-  <example>
-  Context: After refactoring
-  user: "Is this code too complex?"
-  assistant: "I'll use the complexity-reviewer agent to analyze complexity."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: opus
 effort: high
@@ -103,17 +91,6 @@ Structure your review in Japanese:
 **DRY違反**: [Code duplication found, if any]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要リファクタリング]
-
-## Complexity Checklist
-
-- [ ] No unnecessary abstractions (interfaces, factories, wrappers)
-- [ ] No premature generalization for hypothetical requirements
-- [ ] No code duplication (DRY principle followed)
-- [ ] Functions are short and single-purpose
-- [ ] Nesting depth is 2-3 levels max
-- [ ] No defensive code for impossible cases
-- [ ] No excessive comments or documentation
-- [ ] Code is readable without explanation
 
 ## Guidelines
 

@@ -6,17 +6,6 @@ description: |
   data handling.
 
   Use when reviewing security-sensitive code or before deploying to production.
-
-  <example>
-  Context: Reviewing authentication code
-  user: "Check this auth code for security issues"
-  assistant: "I'll use the security-reviewer agent for security analysis."
-  </example>
-
-  <example>
-  Context: Before production deployment
-  assistant: "Let me use the security-reviewer agent to check for vulnerabilities."
-  </example>
 tools: Glob, Grep, Read, Bash, WebSearch
 model: sonnet
 effort: high
@@ -105,19 +94,6 @@ Structure your review in Japanese:
 **要確認事項**: [Items that need further investigation]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要修正 / 緊急対応必要]
-
-## Security Checklist
-
-- [ ] No hardcoded secrets or credentials
-- [ ] User input validated and sanitized
-- [ ] SQL/NoSQL queries use parameterized statements
-- [ ] Authentication properly implemented
-- [ ] Authorization checks at all entry points
-- [ ] Sensitive data encrypted
-- [ ] No sensitive data in logs
-- [ ] Proper error handling (no stack traces to users)
-- [ ] Dependencies up to date (no known vulnerabilities)
-- [ ] HTTPS/TLS properly configured
 
 ## Guidelines
 

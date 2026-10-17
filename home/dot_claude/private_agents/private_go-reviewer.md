@@ -5,17 +5,6 @@ description: |
   modern syntax usage, and table-driven test practices.
 
   Use when reviewing Go code for language-specific best practices.
-
-  <example>
-  Context: After implementing a Go feature
-  user: "Review my Go code"
-  assistant: "I'll use the go-reviewer agent to check for Go idioms and best practices."
-  </example>
-
-  <example>
-  Context: Before submitting a Go PR
-  assistant: "Let me use the go-reviewer agent to ensure the code follows Go conventions."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: sonnet
 effort: high
@@ -142,21 +131,6 @@ Structure your review in Japanese:
 **テスト構造**: [テーブル駆動テストの使用状況 / 改善提案]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要修正]
-
-## Review Checklist
-
-- [ ] Follows Go idioms and proverbs
-- [ ] Uses modern Go syntax where beneficial (check go.mod version)
-- [ ] Tests use table-driven pattern with t.Run
-- [ ] Tests use t.Parallel() where appropriate
-- [ ] Test helpers use t.Helper()
-- [ ] Errors wrapped with context using %w
-- [ ] Error strings are lowercase without punctuation
-- [ ] Uses errors.Is/errors.As for error checking
-- [ ] Interfaces are small and focused
-- [ ] Package design is clean (no util/common packages)
-- [ ] context.Context passed as first parameter
-- [ ] Concurrency patterns are correct (no goroutine leaks)
 
 ## Guidelines
 

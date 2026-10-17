@@ -5,17 +5,6 @@ description: |
   accuracy, and consistency with the current codebase.
 
   Use when documentation needs review or after significant code changes.
-
-  <example>
-  Context: After adding a new feature
-  assistant: "Let me use the doc-reviewer agent to check if docs need updates."
-  </example>
-
-  <example>
-  Context: Before release
-  user: "Is the README up to date?"
-  assistant: "I'll use the doc-reviewer agent to verify documentation accuracy."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: haiku
 effort: medium
@@ -64,15 +53,6 @@ Structure your review in Japanese:
 **不足している情報**: [Missing documentation that should be added]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要更新]
-
-## Review Checklist
-
-- [ ] README is clear and simple for new users
-- [ ] Installation instructions are accurate
-- [ ] Usage examples work correctly
-- [ ] API documentation matches implementation
-- [ ] No outdated information
-- [ ] Important features are documented
 
 ## Guidelines
 

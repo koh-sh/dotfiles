@@ -13,23 +13,6 @@ description: |
 
   Use when reviewing naming and style consistency, especially before PRs or
   after significant code changes.
-
-  <example>
-  Context: After implementing a new feature
-  user: "Check if my naming follows the conventions"
-  assistant: "I'll use the naming-style-reviewer agent to check naming and style consistency."
-  </example>
-
-  <example>
-  Context: Before submitting a PR
-  user: "Review my code's naming and style"
-  assistant: "Let me use the naming-style-reviewer agent to ensure consistent naming and style."
-  </example>
-
-  <example>
-  Context: After refactoring code
-  assistant: "Let me use the naming-style-reviewer agent to verify naming conventions are consistent."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: sonnet
 effort: high
@@ -182,22 +165,6 @@ Structure your review in Japanese:
    - 推奨: [Your recommendation with reasoning]
 
 **総合評価**: [問題なし / 軽微な改善推奨 / 要修正]
-
-## Review Checklist
-
-- [ ] Variable names follow language conventions
-- [ ] Variable names match codebase patterns
-- [ ] Function names follow language conventions
-- [ ] Function names match codebase patterns
-- [ ] Class/type names follow language conventions
-- [ ] Class/type names match codebase patterns
-- [ ] Constants follow language conventions
-- [ ] File names follow language/framework conventions
-- [ ] Boolean variables use appropriate prefixes
-- [ ] Event handlers use consistent naming patterns
-- [ ] Indentation is consistent
-- [ ] Import organization follows conventions
-- [ ] Code structure matches existing patterns
 
 ## Decision Guidelines
 

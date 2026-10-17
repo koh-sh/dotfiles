@@ -6,18 +6,6 @@ description: |
   consistency, completeness, and quality.
 
   Use when reviewing technical documents before implementation or approval.
-
-  <example>
-  Context: Before implementing a feature based on a spec
-  user: "Review this specification before I start implementing"
-  assistant: "I'll use the spec-reviewer agent to critically analyze the spec."
-  </example>
-
-  <example>
-  Context: Reviewing a design proposal
-  user: "Does this design doc have any issues?"
-  assistant: "I'll use the spec-reviewer agent to review the design document."
-  </example>
 tools: Glob, Grep, Read, Bash, WebFetch, WebSearch
 model: opus
 effort: high

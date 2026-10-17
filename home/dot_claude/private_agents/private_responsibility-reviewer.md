@@ -18,20 +18,6 @@ description: |
   helper, or grows an existing class beyond its original purpose. Also use
   when reviewing code that may have grown organically, mixes concerns,
   reinvents existing utilities, or leaks knowledge across module boundaries.
-
-  <example>
-  Context: After Claude Code adds a feature touching only one part of the repo
-  assistant: "Let me use the responsibility-reviewer agent to check whether
-  the new logic belongs in the class it was added to, or duplicates something
-  that already exists elsewhere."
-  </example>
-
-  <example>
-  Context: Reviewing a class that has grown to handle many concerns
-  user: "Is this class doing too much?"
-  assistant: "I'll use the responsibility-reviewer agent to evaluate the
-  separation of concerns and lay out alternative splits."
-  </example>
 tools: Glob, Grep, Read, Bash
 model: opus
 effort: high
@@ -139,17 +125,6 @@ Respond in Japanese. Present findings as **trade-offs**, not as fix prescription
    - 判断材料: [どの案を選ぶべきかの判断基準。例:「同種の処理が今後増える見込みがあるなら案A、この一回限りなら案C」]
 
 **総合所感**: [責務分割の観点で全体的に整っているか / 軽微な再配置で改善 / 構造的に再検討の余地あり]
-
-## Responsibility Checklist
-
-- [ ] Each module/class has one clear, namable responsibility
-- [ ] No reinvention of existing utilities (verified via grep/glob)
-- [ ] Abstractions match real variation in the codebase (not speculative)
-- [ ] Dependencies flow in a consistent direction (no reaching into internals)
-- [ ] Cross-cutting concerns are handled at a consistent layer
-- [ ] No knowledge leakage: callers don't reach past immediate collaborators (LoD), public APIs don't expose implementation details
-- [ ] New code follows the codebase's existing convention for the same concern, or has a documented reason to deviate
-- [ ] Module boundaries are at stable seams, not incidental ones
 
 ## Guidelines
 
