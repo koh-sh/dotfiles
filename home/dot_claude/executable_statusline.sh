@@ -1,18 +1,20 @@
 #!/bin/bash
-input=$(cat)
+# Extract all fields in a single jq call, joined by the ASCII unit separator
+# (a non-whitespace IFS keeps empty fields in place)
+IFS=$'\x1f' read -r MODEL PROJECT_DIR CTX_PCT COST FIVE_H FIVE_H_RESET SEVEN_D < <(
+    jq -r '[
+        .model.display_name // "",
+        .workspace.project_dir // .workspace.current_dir // "",
+        .context_window.used_percentage // "",
+        .cost.total_cost_usd // 0,
+        .rate_limits.five_hour.used_percentage // "",
+        .rate_limits.five_hour.resets_at // "",
+        .rate_limits.seven_day.used_percentage // ""
+    ] | map(tostring) | join("\u001f")'
+)
 
-MODEL=$(echo "$input" | jq -r '.model.display_name // empty')
-
-PROJECT_DIR=$(echo "$input" | jq -r '.workspace.project_dir // .workspace.current_dir')
 PROJECT_NAME="${PROJECT_DIR##*/}"
-
-CTX_PCT=$(echo "$input" | jq -r '.context_window.used_percentage // empty' | cut -d. -f1)
-
-COST=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
-
-FIVE_H=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-FIVE_H_RESET=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
-SEVEN_D=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+CTX_PCT="${CTX_PCT%%.*}"
 
 MODEL_DISP="${MODEL:--}"
 
