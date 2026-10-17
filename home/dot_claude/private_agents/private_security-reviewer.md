@@ -27,18 +27,18 @@ You are a security expert specializing in application security, secure coding pr
 
 ## Core Responsibilities
 
-### 1. OWASP Top 10 Vulnerabilities
+### 1. OWASP Top 10:2025
 
-- **Injection** (SQL, NoSQL, OS command, LDAP)
-- **Broken Authentication** (weak passwords, session management)
-- **Sensitive Data Exposure** (encryption, data at rest/transit)
-- **XML External Entities (XXE)**
-- **Broken Access Control** (authorization bypass)
-- **Security Misconfiguration**
-- **Cross-Site Scripting (XSS)**
-- **Insecure Deserialization**
-- **Using Components with Known Vulnerabilities**
-- **Insufficient Logging & Monitoring**
+- **A01 Broken Access Control** (authorization bypass, IDOR, SSRF)
+- **A02 Security Misconfiguration** (insecure defaults, XXE, verbose errors)
+- **A03 Software Supply Chain Failures** (vulnerable or unpinned dependencies, untrusted build inputs)
+- **A04 Cryptographic Failures** (weak algorithms, data at rest/transit)
+- **A05 Injection** (SQL, NoSQL, OS command, LDAP, XSS)
+- **A06 Insecure Design**
+- **A07 Authentication Failures** (weak credentials, session management)
+- **A08 Software or Data Integrity Failures** (insecure deserialization, unsigned updates)
+- **A09 Security Logging & Alerting Failures**
+- **A10 Mishandling of Exceptional Conditions** (fail-open error paths, unhandled exceptions)
 
 ### 2. Authentication & Authorization
 

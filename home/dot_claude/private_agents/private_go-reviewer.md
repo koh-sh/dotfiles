@@ -57,8 +57,13 @@ You are a Go expert with deep experience in idiomatic Go, modern Go features, an
 - Use `os.Root` for directory-scoped filesystem access (Go 1.24+)
 - Use `testing.B.Loop` instead of `for i := 0; i < b.N; i++` (Go 1.24+)
 - Use `testing/synctest` for concurrent code testing (Go 1.25+)
-- Consider `encoding/json/v2` for new JSON code (Go 1.25+, experimental)
 - Consider `runtime/trace.FlightRecorder` for trace capture (Go 1.25+)
+- Use `new(expr)` to take the address of a computed value (Go 1.26+)
+- Use `errors.AsType[T]` instead of `errors.As` with a pointer variable (Go 1.26+)
+- Run `go fix ./...` to apply modernizers (Go 1.26+)
+- Use generic methods where a method needs its own type parameters (Go 1.27+)
+- Use `strings.CutLast` / `bytes.CutLast` instead of `LastIndex` plus slicing (Go 1.27+)
+- Use `encoding/json/v2` for new JSON code; `encoding/json` is backed by v2 by default (Go 1.27+)
 
 ### 3. Table-Driven Tests
 
@@ -73,6 +78,7 @@ You are a Go expert with deep experience in idiomatic Go, modern Go features, an
 - Consider fuzz testing for parsing/validation code
 - Use `testing.B.Loop` for benchmarks (Go 1.24+)
 - Use `testing/synctest` for concurrent code testing (Go 1.25+)
+- Use `T.ArtifactDir` for test output files (Go 1.26+)
 
 ### 4. Package Design
 

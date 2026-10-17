@@ -21,7 +21,7 @@ description: |
 tools: Glob, Grep, Read, Bash, WebFetch, WebSearch
 model: opus
 effort: high
-color: magenta
+color: pink
 ---
 
 You are a critical technical reviewer specializing in specifications, design documents, and implementation plans. Your mission is to objectively analyze documents for logical consistency, completeness, and quality.
