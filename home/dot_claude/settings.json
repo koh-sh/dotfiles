@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 3650,
   "env": {
     "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "600000"
@@ -158,11 +159,17 @@
   },
   "outputStyle": "Concise",
   "language": "日本語",
-  "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "tui": "fullscreen",
   "switchModelsOnFlag": false,
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voice": {
+    "enabled": true
+  }
 }
