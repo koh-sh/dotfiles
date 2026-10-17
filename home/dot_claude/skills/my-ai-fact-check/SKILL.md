@@ -1,5 +1,5 @@
 ---
-description: Fact-check a previous assistant output and produce a corrected, evidence-backed version. Triggers on "verify", "fact-check", "double-check", "確認して", "検証して".
+description: Fact-check a previous assistant output and produce a corrected, evidence-backed version.
 disable-model-invocation: true
 argument-hint: [target: defaults to the immediately preceding assistant message]
 ---
