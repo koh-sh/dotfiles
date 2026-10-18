@@ -177,6 +177,7 @@
   "switchModelsOnFlag": false,
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
+  "idleCompaction": false,
   "voice": {
     "enabled": true
   }
