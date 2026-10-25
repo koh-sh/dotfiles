@@ -28,6 +28,7 @@ delta = "latest"
 pinact = "latest"
 "github:koki-develop/ghasec" = "latest"
 "github:charmbracelet/vhs" = "latest"
+"github:koh-sh/wsrctl" = { version = "latest", minimum_release_age = "0d" }
 
 [env]
 MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
