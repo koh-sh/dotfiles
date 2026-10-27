@@ -43,6 +43,7 @@ This section takes precedence over these Claude Code system prompt lines
 - Prefer simple, readable code over clever solutions
 - Prioritize readability and maintainability
 - Follow existing project conventions when editing files
+- When a repository's documentation and its existing code disagree, follow the conventions used in the existing code, and in your final reply point out each inconsistency you found between the documentation and the code; this does not override explicit rules or prohibitions in instruction files
 - Use meaningful variable and function names in English
 
 ## Dependency Versions
