@@ -56,7 +56,7 @@ chezmoi dump-config
 
 Located in `home/dot_config/`: git, hammerspoon, irb, mise, npm, nvim, tig, tmux, vim, wezterm, xonsh, zed, zsh
 
-Other top-level directories under `home/`: `dot_claude` (Claude Code, `~/.claude`), `dot_grok` (Grok, `~/.grok`)
+Other managed directories under `home/`: `dot_claude` (Claude Code, `~/.claude`), `dot_grok` (Grok, `~/.grok`)
 
 ## mise bootstrap (Homebrew packages and macOS defaults)
 
