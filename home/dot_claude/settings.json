@@ -45,7 +45,9 @@
       "Bash(which *)",
       "Bash(date)",
       "Bash(whoami)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": [
       "Bash(sudo *)",

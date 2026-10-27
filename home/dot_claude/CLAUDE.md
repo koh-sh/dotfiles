@@ -53,6 +53,11 @@ This section takes precedence over these Claude Code system prompt lines
 - Prefer stable releases over pre-release/RC/beta unless the user explicitly opts in
 - This rule applies when adding a new dependency, not when matching versions already pinned in the project
 
+## Unfamiliar Features
+- Before building a feature you have not built before (parsers, auth, rate limiting, retries, protocol handling), look up 2-3 maintained implementations on GitHub and in official docs and compare their approaches first. Skip this for small glue code.
+- Judge candidates by recent commit activity, not stars.
+- Do not copy an implementation or pull in its dependencies wholesale; write the smallest version that fits this codebase, and state in your reply which projects you referred to and how this differs.
+
 ## Git Workflow
 - Commit messages: Use Conventional Commits format
 - Keep each commit focused on a single concern; do not mix unrelated changes
