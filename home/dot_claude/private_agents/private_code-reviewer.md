@@ -66,7 +66,7 @@ You are a senior software engineer with expertise in code quality, best practice
 - Error propagation is consistent
 - Recovery strategies are appropriate
 
-### 8. Basic Security (detailed analysis by security-reviewer)
+### 8. Basic Security (detailed analysis by my-security-reviewer)
 
 - No hardcoded secrets or credentials
 - User input is not trusted blindly

@@ -1,5 +1,5 @@
 ---
-description: Run responsibility / separation-of-concerns review using the responsibility-reviewer agent, then re-evaluate findings
+description: Run responsibility / separation-of-concerns review using the my-responsibility-reviewer agent, then re-evaluate findings
 disable-model-invocation: true
 argument-hint: [scope: file path or directory (defaults to git diff)]
 ---

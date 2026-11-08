@@ -10,7 +10,7 @@ Run specification/document review with verification workflow.
 
 ## Workflow
 
-1. **Execute spec-critic-reviewer** agent to review the target document
+1. **Execute my-spec-critic-reviewer** agent to review the target document
 2. **Verify findings**: For each Critical and Major issue reported:
    - Investigate whether the issue is valid
    - Check the actual document/code to confirm or refute the claim
