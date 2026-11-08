@@ -1,0 +1,16 @@
+.claude/skills/my-review
+.claude/skills/my-full-review
+.claude/skills/my-naming-review
+.claude/skills/my-responsibility-review
+.claude/skills/my-spec-review
+.claude/skills/my-harness-review
+.claude/skills/my-ai-fact-check
+.claude/skills/my-ethics-review
+.claude/agents/code-reviewer.md
+.claude/agents/complexity-reviewer.md
+.claude/agents/responsibility-reviewer.md
+.claude/agents/security-reviewer.md
+.claude/agents/test-reviewer.md
+.claude/agents/doc-sync-reviewer.md
+.claude/agents/naming-style-reviewer.md
+.claude/agents/go-reviewer.md

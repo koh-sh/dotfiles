@@ -163,7 +163,7 @@
   "skillOverrides": {
     "find-skills": "off",
     "terminal-browser": "off",
-    "my-ethics-review": "off"
+    "ethics-review": "off"
   },
   "extraKnownMarketplaces": {
     "cursor-plugins": {

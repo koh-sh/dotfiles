@@ -4,7 +4,7 @@ disable-model-invocation: true
 allowed-tools: Bash(claude -p --permission-mode plan *)
 ---
 
-# my-harness-review
+# harness-review
 
 Review the project's harness with the same procedure every time: detect issues, propose changes, apply only the ones the user adopts, and open one PR. Run it after a Claude Code update or when the harness has changed during development. It is not meant to run on a schedule.
 

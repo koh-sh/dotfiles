@@ -26,7 +26,7 @@ Pick the lenses the change touches, always including spec conformance:
 | Compatibility | API, schema, config and CLI contracts that other code depends on |
 | Blast radius | IaC, CI, deploy and permission changes: what breaks if this is wrong |
 
-Run one subagent per lens in parallel (a matching reviewer agent such as my-security-reviewer where one exists). Each looks only for problems in its lens that would block the merge, with file:line evidence. Review the rest yourself for non-blocking points.
+Run one subagent per lens in parallel. Each looks only for problems in its lens that would block the merge, with file:line evidence. Review the rest yourself for non-blocking points.
 
 ## 3. Verify
 

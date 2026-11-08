@@ -4,7 +4,7 @@ disable-model-invocation: true
 argument-hint: [target: file, URL, or description]
 ---
 
-# my-ethics-review
+# ethics-review
 
 Review the target (action, idea, design, or program) against the **ACM/IEEE-CS Software Engineering Code of Ethics and Professional Practice (Version 5.2)** and report ethical concerns with concrete should-be guidance.
 
@@ -99,5 +99,5 @@ Omit this section entirely when the Verdict is `PASS`.
 
 - Reference: ACM/IEEE-CS Software Engineering Code of Ethics and Professional Practice (Version 5.2) — https://www.acm.org/code-of-ethics/software-engineering-code
 - Flag ethical issues even when the code or design is technically sound.
-- Avoid scope creep: pure technical preferences and style belong to other review skills (e.g., `my-review`). This skill focuses solely on the ethics axis.
+- Avoid scope creep: pure technical preferences and style belong to other review skills (e.g., `self-review`). This skill focuses solely on the ethics axis.
 - When there are no findings, do not manufacture issues. State `No findings.` explicitly.

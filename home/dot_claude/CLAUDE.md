@@ -52,6 +52,19 @@ This section takes precedence over these Claude Code system prompt lines
 - Follow existing project conventions when editing files
 - When a repository's documentation and its existing code disagree, follow the conventions used in the existing code, and in your final reply point out each inconsistency you found between the documentation and the code; this does not override explicit rules or prohibitions in instruction files
 - Use meaningful variable and function names in English
+- Before adding a function, helper, or module, search the codebase for an
+  existing one and for the module that already owns that responsibility;
+  reuse or extend it instead of writing a local copy, and match the naming
+  of the surrounding code
+- Write only what the current task needs: no abstractions, options, or
+  extension points for hypothetical future use, and no handling for cases
+  that cannot occur
+
+## Code Review
+- After finishing a code change and before reporting it as done, run the
+  `self-review` skill on it. Skip it when only docs changed. Subagents skip
+  it; the session that delegated the work runs it
+- When asked to review code changes, use `self-review` as well
 
 ## Dependency Versions
 - When introducing a new language, framework, or library, always use the latest stable version

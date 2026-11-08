@@ -1,5 +1,5 @@
 ---
-name: my-spec-critic-reviewer
+name: spec-critic-reviewer
 description: |
   Specification and design document reviewer. Critically reviews specifications,
   design docs, implementation plans, and technical proposals for logical

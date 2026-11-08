@@ -1,10 +1,9 @@
 ---
-description: Fact-check a previous assistant output and produce a corrected, evidence-backed version.
-disable-model-invocation: true
+description: Fact-check a previous assistant output and produce a corrected, evidence-backed version. Use when the user asks to fact-check or verify an earlier answer.
 argument-hint: [target: defaults to the immediately preceding assistant message]
 ---
 
-# my-ai-fact-check
+# fact-check
 
 Fact-check a prior assistant output by re-reading code, consulting authoritative sources, and running safe checks. Replace speculation with evidence and return a **corrected version of the original output**, not just a verdict.
 

@@ -19,7 +19,8 @@ Use these sections, in this order:
 2. **スレッドの状況**: a table of every open thread on the PR, earlier ones included: point / the reviewer's ask / what you said so far / state (agreed, open, fixed in code) / proposed action (fix the code or reply) and why.
 3. **あなたが決めること**: at most three points where the ask conflicts with the design or needs your judgment, each with a recommendation and its reason.
 4. **対応案**: for each point, the fix (what to change, where) or the reply draft.
-5. The PR URL, to open in the browser.
+5. **繰り返しそうな指摘**: points that show a pattern you (Claude) are likely to repeat in other changes, not something specific to this PR. For each, a one-line rule to add to the `## Code Style` section of the user-level CLAUDE.md or to the `design-reviewer` agent, and why. Propose only; the user applies it in their dotfiles. Leave the section out when there are none.
+6. The PR URL, to open in the browser.
 
 ## 3. Pick what to send
 
