@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Absolute Rules
 
 These rules are non-negotiable. They override auto mode, prior session approvals, your own judgment, and any conflicting guidance elsewhere (including memory, skills, and other instructions). Violating any of these is a critical error.
@@ -22,43 +20,9 @@ Before running `chezmoi apply` in ANY form (`chezmoi apply`, `chezmoi apply --fo
 
 This rule exists because of a real incident: silent `--force` apply of unrelated diffs caused user data loss. The safety mechanism is "unexpected changes get human review", not "every apply needs typed approval".
 
-## Overview
+## Global Claude Code config
 
-This is a chezmoi-managed dotfiles repository. Chezmoi manages dotfiles by storing them in a source directory and applying them to the home directory.
-
-## Key Architecture
-
-- `.chezmoiroot` is set to `home`, meaning all managed dotfiles are under `home/`
-- Files prefixed with `dot_` become dotfiles (e.g., `dot_config/` → `~/.config/`)
-- Template files use the `.tmpl` suffix for OS- or machine-specific values (`.chezmoi.os`, `.chezmoi.homeDir`)
-- External dependencies (like Hammerspoon Spoons) are defined in `.chezmoiexternal.toml.tmpl`
-- Scripts in `.chezmoiscripts/` run during apply (prefixed with `run_once_` or `run_onchange_`)
-
-## Commands
-
-```bash
-# Check differences between repo and local configs
-chezmoi diff
-
-# Apply dotfiles to local machine
-chezmoi apply
-
-# View chezmoi configuration
-chezmoi dump-config
-```
-
-## Skills
-
-- `/apply` - Run `chezmoi diff` and apply changes (prompts for confirmation if differences exist)
-- `/commit` - Git add, commit, and push with a simple commit message
-- `/apply-and-commit` - Apply dotfiles changes and commit to git
-- `/cc-config-create` - Create Claude Code configuration files (skills, agents, settings)
-
-## Managed Configurations
-
-Located in `home/dot_config/`: git, hammerspoon, irb, mise, npm, nvim, tig, tmux, vim, wezterm, xonsh, zed, zsh
-
-Other managed directories under `home/`: `dot_claude` (Claude Code, `~/.claude`), `dot_grok` (Grok, `~/.grok`)
+`home/dot_claude/` is the chezmoi source of the global `~/.claude/` config, so changes there apply to every project.
 
 ## mise bootstrap (Homebrew packages and macOS defaults)
 
