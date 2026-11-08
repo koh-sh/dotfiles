@@ -43,3 +43,9 @@
 [delta]
   line-numbers = true
 
+[credential "https://origin.cursor.com/git"]
+	helper = 
+	helper = !{{ .chezmoi.homeDir }}/.local/bin/origin credential-helper
+[credential "https://origin.cursor.com"]
+	helper = 
+	helper = !{{ .chezmoi.homeDir }}/.local/bin/origin credential-helper
