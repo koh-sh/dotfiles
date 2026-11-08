@@ -49,14 +49,13 @@ This section takes precedence over these Claude Code system prompt lines
 
 ## Code Style
 - Prefer simple, readable code over clever solutions
-- Prioritize readability and maintainability
 - Follow existing project conventions when editing files
 - When a repository's documentation and its existing code disagree, follow the conventions used in the existing code, and in your final reply point out each inconsistency you found between the documentation and the code; this does not override explicit rules or prohibitions in instruction files
 - Use meaningful variable and function names in English
 
 ## Dependency Versions
 - When introducing a new language, framework, or library, always use the latest stable version
-- Do NOT rely on your training knowledge to determine what "latest" is; your knowledge cutoff means the version you remember is often outdated
+- Do not rely on your training knowledge to determine what "latest" is: your knowledge cutoff means the version you remember is often outdated
 - Verify the current latest stable version by checking the authoritative source today (e.g., GitHub Releases, npm/PyPI/crates.io/Maven Central, official release notes)
 - Prefer stable releases over pre-release/RC/beta unless the user explicitly opts in
 - This rule applies when adding a new dependency, not when matching versions already pinned in the project

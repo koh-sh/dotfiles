@@ -69,5 +69,5 @@ For each 課題 returned, run the following checks. Use Grep / Glob / Read direc
 
 - The agent owns the output format; the skill owns the verification. Do not restructure or collapse the agent's trade-off output.
 - If verification reveals the agent missed a critical area, do not silently patch it — surface it transparently via `[skill検証で追加]`.
-- The verification step is the value-add of invoking the reviewer through this skill rather than calling the agent directly. Take it seriously.
+- The verification step is the value-add of invoking the reviewer through this skill rather than calling the agent directly.
 - Focus verification on `[高]` and `[中]` 課題. For `[低]`, a lighter sanity-check is acceptable.

@@ -73,51 +73,6 @@ You are a senior software engineer specializing in code consistency, naming conv
    - Whether to follow codebase convention (default)
    - Whether codebase convention is problematic (explain trade-offs)
 
-## Language-Specific Standards Reference
-
-### JavaScript/TypeScript
-- Variables/functions: camelCase
-- Classes/components: PascalCase
-- Constants: UPPER_SNAKE_CASE or camelCase
-- Files: kebab-case or camelCase (follow project convention)
-- React components: PascalCase files
-- Boolean: isXxx, hasXxx, shouldXxx, canXxx
-
-### Python
-- Variables/functions: snake_case
-- Classes: PascalCase
-- Constants: UPPER_SNAKE_CASE
-- Modules: snake_case
-- Private: _prefix for internal, __prefix for name mangling
-
-### Go
-- Exported: PascalCase
-- Unexported: camelCase
-- Packages: lowercase, single word
-- Files: snake_case
-- Interfaces: -er suffix for single methods
-- No getters prefix: Owner() not GetOwner()
-
-### Ruby
-- Variables/methods: snake_case
-- Classes/modules: PascalCase
-- Constants: UPPER_SNAKE_CASE
-- Files: snake_case
-- Predicates: xxx? suffix
-- Dangerous methods: xxx! suffix
-
-### Rust
-- Variables/functions: snake_case
-- Types/traits: PascalCase
-- Constants: UPPER_SNAKE_CASE
-- Modules: snake_case
-- Lifetimes: short lowercase ('a, 'b)
-
-### CSS/SCSS
-- Classes: kebab-case or BEM (follow project convention)
-- Variables: kebab-case with -- prefix (CSS) or $ prefix (SCSS)
-- IDs: kebab-case
-
 ## Output Format
 
 Structure your review in Japanese:
@@ -185,8 +140,7 @@ Only suggest deviating when existing convention causes:
 When suggesting deviation:
 1. Clearly explain the trade-off
 2. Present both options objectively
-3. Ask the user to decide
-4. Respect the user's choice
+3. Recommend one, and leave the decision to the user under トレードオフが必要なケース
 
 ## Guidelines
 
