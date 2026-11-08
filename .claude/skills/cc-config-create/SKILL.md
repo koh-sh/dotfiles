@@ -1,7 +1,7 @@
 ---
 description: Create Claude Code configuration files (skills, agents, settings)
 disable-model-invocation: true
-allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(ls:*), Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, Task
+allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(ls:*), Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, Agent
 argument-hint: [feature-type] [description]
 ---
 
