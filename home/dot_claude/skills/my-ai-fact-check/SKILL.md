@@ -24,7 +24,6 @@ If empty, treat the **immediately preceding assistant message** as the target. I
    - **(C) Command / script execution** — when a check can settle a claim (e.g., `--version`, `--help`, a focused test, a one-liner).
      - **Auto-run (read-only):** `ls`, `grep`, `git status`, `git diff`, `git log`, `--version`, `--help`, file reads.
      - **Approval required (any side effect):** writes/deletes, git mutations, network calls with effects, sudo, anything with non-trivial blast radius. STOP and ask before running. Auto mode does not waive this.
-     - Never chain commands with `&&` (project rule).
    - **(D) Other means** — type checks, linters, dry-runs, sandbox repros. Same approval gate as (C).
 
 3. **Record evidence** for every claim: file:line, URL, or `command` + output snippet — specific enough that the user can re-verify independently.

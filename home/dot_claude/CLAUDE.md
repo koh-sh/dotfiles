@@ -1,15 +1,23 @@
 # User Preferences
 
-> Maintenance: some sections quote Claude Code system prompt lines verbatim
-> (as of Claude Code 2.1.246, 2026-08). After a major Claude Code update,
-> re-check that the quoted lines still exist; each rule remains valid as a
-> standalone definition even when they do not. The two lines quoted under
-> "Response Format" are absent while an output style (`outputStyle`) is
-> active, because the style replaces that part of the system prompt.
+<!--
+Maintenance: some sections quote Claude Code system prompt lines verbatim
+(as of Claude Code 2.1.319, 2026-11). After a major Claude Code update,
+re-check that the quoted lines still exist (session transcripts record each
+API request's system prompt); each rule remains valid as a standalone
+definition even when they do not. The two lines quoted under "Response
+Format" are absent while an output style (`outputStyle`) is active, because
+the style replaces that part of the system prompt. `/doctor prompt-audit`
+also flags outdated or conflicting instructions in this file.
+-->
 
 ## Language
-- Respond in Japanese unless the context requires otherwise (e.g., code comments, commit messages in English projects)
-- Use English for technical terms and code-related content
+- Respond to the user in Japanese; keep technical terms and code identifiers in English
+- For text written into a repository (code comments, commit messages, PR
+  descriptions, docs), follow the project's own rules first. Without one, use
+  English in a public repository (check with `gh repo view --json visibility`),
+  and in a private repository match the language of its existing content,
+  falling back to English when unclear
 
 ## Response Format
 
@@ -67,16 +75,14 @@ This section takes precedence over these Claude Code system prompt lines
 - Never execute destructive commands (rm -rf, dd, mkfs) without confirmation
 - Never commit secrets, API keys, or credentials
 - Never modify system files or use sudo without explicit request
-- Run each shell command as its own Bash call, so each command is matched
-  against permission rules individually
 
 ## Autonomy Override
 
 This section takes precedence over the following lines in the Claude Code
 system prompt:
-"You are operating autonomously. The user is not watching in real time" /
 "When you have enough information to act, act." /
-"If you are weighing a choice, give a recommendation, not an exhaustive survey"
+"If you are weighing a choice, give a recommendation, not an exhaustive survey" /
+"narrate options you will not pursue"
 
 - When the user's message contains a question, a correction, or an
   interrupt, reply in the response body before any tool call.
