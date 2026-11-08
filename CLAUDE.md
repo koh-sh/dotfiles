@@ -11,6 +11,8 @@ These rules are non-negotiable. They override auto mode, prior session approvals
 Before running `chezmoi apply` in ANY form (`chezmoi apply`, `chezmoi apply --force`, `chezmoi apply <path>`, `chezmoi apply --include=...`, etc.), you MUST do all of the following:
 
 1. Run `chezmoi diff` first (scoped to the same target if the `apply` will be scoped, otherwise unscoped).
+   For a directory target, pass `--recursive` (`chezmoi diff --recursive <dir>`): without it the diff
+   prints nothing for the files inside, while `chezmoi apply <dir>` still applies them.
 2. Present the complete, verbatim diff output to the user in the chat. Never summarize, truncate, paraphrase, or hide any hunk.
 3. Inspect the diff for **unexpected hunks** — anything beyond the changes you (or the user) made in this conversation. Unexpected examples: files you did not modify in this session, hunks that don't correspond to a discussed change, whitespace/trailing-newline drift in untouched files. If even one unexpected hunk is present, STOP. Ask the user explicitly whether to proceed and wait for unambiguous approval (e.g. "yes", "apply", "go") in the SAME conversation turn. The approval must reference this specific apply invocation; prior approvals in the session do NOT carry over.
 
@@ -28,7 +30,7 @@ This is a chezmoi-managed dotfiles repository. Chezmoi manages dotfiles by stori
 
 - `.chezmoiroot` is set to `home`, meaning all managed dotfiles are under `home/`
 - Files prefixed with `dot_` become dotfiles (e.g., `dot_config/` → `~/.config/`)
-- Template files use `.tmpl` suffix for OS-specific logic
+- Template files use the `.tmpl` suffix for OS- or machine-specific values (`.chezmoi.os`, `.chezmoi.homeDir`)
 - External dependencies (like Hammerspoon Spoons) are defined in `.chezmoiexternal.toml.tmpl`
 - Scripts in `.chezmoiscripts/` run during apply (prefixed with `run_once_` or `run_onchange_`)
 
