@@ -10,7 +10,6 @@ Review $ARGUMENTS. The working directory is a worktree of the PR's latest head. 
 ## 1. Context
 
 - Read the PR: description, linked issues, diff, and CI status (`gh pr checks`). Read the repository's own guidance (CLAUDE.md, CONTRIBUTING, review guidelines) where present.
-- If `~/.local/share/pr-review/<owner>/<repo>.md` exists, read it: it records which kinds of findings you posted or dropped on this repository before. Calibrate to it.
 - It is a re-review when you (`gh api user --jq .login`) have reviewed this PR before. Then review the changes since the commit of your latest review, and collect your earlier review threads to see how each was answered.
 
 ## 2. Find problems
@@ -63,5 +62,3 @@ Use these sections, in this order:
 ## 6. Pick what to post
 
 Ask which findings to post (AskUserQuestion with multiple selection when they fit, otherwise by number). Then write only the picked ones as ready-to-paste GitHub comments: the file:line each attaches to, and the comment in Conventional Comments form, short and specific, without verification notes. Findings that were not picked are not written in that form.
-
-Then append one line per finding to `~/.local/share/pr-review/<owner>/<repo>.md` (create it when missing): date, PR number, label and lens, a one-line summary, posted or dropped.
