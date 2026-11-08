@@ -157,8 +157,13 @@
     "refreshInterval": 60
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": false,
+    "gopls-lsp@claude-plugins-official": false
+  },
+  "skillOverrides": {
+    "find-skills": "off",
+    "terminal-browser": "off",
+    "my-ethics-review": "off"
   },
   "extraKnownMarketplaces": {
     "cursor-plugins": {
