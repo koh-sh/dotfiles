@@ -153,7 +153,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh"
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 60
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
@@ -176,7 +177,7 @@
     }
   },
   "tui": "fullscreen",
-  "switchModelsOnFlag": false,
+  "switchModelsOnFlag": true,
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
   "idleCompaction": false,
