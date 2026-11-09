@@ -62,9 +62,11 @@ This section takes precedence over these Claude Code system prompt lines
 
 ## Code Review
 - After finishing a code change and before reporting it as done, run the
-  `self-review` skill on it. Skip it when only docs changed. Subagents skip
-  it; the session that delegated the work runs it
-- When asked to review code changes, use `self-review` as well
+  `self-review` skill on it. Skip it when only docs changed
+- When asked to review your own code changes (this session's, the working
+  tree, or your own branch or PR), use `self-review` as well. Someone else's
+  PR is out of its scope
+- Subagents skip both; the session that delegated the work runs it
 
 ## Dependency Versions
 - When introducing a new language, framework, or library, always use the latest stable version

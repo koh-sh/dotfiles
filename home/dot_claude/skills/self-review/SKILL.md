@@ -1,6 +1,6 @@
 ---
-description: Review a code change for over-engineering, misplaced or re-implemented logic, naming drift, and docs or tests left behind, then fix what has one right answer and ask only about judgment calls. Use right after finishing a code change, before reporting it as done, and when the user asks to review code changes.
-argument-hint: [scope: path, commit range, or PR (defaults to the unreviewed changes of this session)]
+description: Review a code change for over-engineering, misplaced or re-implemented logic, naming drift, and docs or tests left behind, then fix what has one right answer and ask only about judgment calls. Use right after finishing a code change, before reporting it as done, and when the user asks to review their own code changes. Not for someone else's pull request.
+argument-hint: [scope: path, commit range, or your own PR (defaults to the unreviewed changes of this session)]
 ---
 
 # self-review
