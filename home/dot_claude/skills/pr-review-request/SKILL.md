@@ -11,6 +11,9 @@ Review $ARGUMENTS. The working directory is a worktree of the PR's latest head. 
 
 - Read the PR: description, linked issues, diff, and CI status (`gh pr checks`). Read the repository's own guidance (CLAUDE.md, CONTRIBUTING, review guidelines) where present.
 - It is a re-review when you (`gh api user --jq .login`) have reviewed this PR before. Then review the changes since the commit of your latest review, and collect your earlier review threads to see how each was answered.
+- Pick the review depth from the changes under review:
+  - Count only substantive lines. Leave out generated code, lock files, formatter or lint autofixes, renames and moves, and the same transformation applied in many places. Check that such a change is uniform in every hunk; a hunk that departs from the pattern counts as substantive.
+  - **Deep**: over 400 substantive lines, or it adds a new module, external interface, permission, schema or dependency. **Light**: up to 100 substantive lines and adds none of those. **Standard**: everything else.
 
 ## 2. Find problems
 
@@ -26,11 +29,11 @@ Pick the lenses the change touches, always including spec conformance:
 | Compatibility | API, schema, config and CLI contracts that other code depends on |
 | Blast radius | IaC, CI, deploy and permission changes: what breaks if this is wrong |
 
-Run one subagent per lens in parallel. Each looks only for problems in its lens that would block the merge, with file:line evidence. Review the rest yourself for non-blocking points.
+Look for problems in each picked lens that would block the merge, with file:line evidence, and for non-blocking points in the rest. At Light and Standard depth, do all of it yourself. At Deep depth, run one subagent per picked lens in parallel on Sonnet (`model: sonnet`) for the blocking problems, and look for the non-blocking points yourself.
 
 ## 3. Verify
 
-For each candidate `issue` and `suggestion`, have a separate subagent try to refute it against the actual code. Drop what is refuted, turn what can be neither confirmed nor refuted into a `question`, and merge duplicates.
+Try to refute each candidate `issue` and `suggestion` against the actual code. At Light depth do it yourself; otherwise hand all candidates to one subagent, so they are not checked by whoever found them. Drop what is refuted, turn what can be neither confirmed nor refuted into a `question`, and merge duplicates.
 
 ## 4. Labels
 
@@ -56,7 +59,7 @@ Use these sections, in this order:
 3. **あなたが決めること**: at most three decisions only you can make, each with a recommendation and its reason.
 4. **指摘**: numbered, ordered `issue (blocking)` → `issue (non-blocking)` → `suggestion` → `question`. Each as `<label> [decorations]: <subject>`, with its file:line evidence and whether verification confirmed it. Nitpicks as a count only (list them when asked).
 5. **ラリーの状況** (re-review only): a table of your earlier threads: point / what you asked / their answer / state (agreed, open, fixed in code) / next step.
-6. **確認状況**: CI status, what verification covered, and what was not checked.
+6. **確認状況**: CI status, the review depth picked and why, what verification covered, and what was not checked.
 7. The PR URL, to open in the browser.
 
 ## 6. Pick what to post

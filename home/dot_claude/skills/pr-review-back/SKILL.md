@@ -9,7 +9,7 @@ $ARGUMENTS is your own PR (you are `gh api user --jq .login`). Read the reviews 
 
 ## 1. Check each point
 
-Before deciding how to answer a point, check it against the actual code: is the reviewer right, partly right, or mistaken? Use a subagent per point when there are many. Keep the reviewer's Conventional Comments labels when they used them; points from a CHANGES_REQUESTED review or with a `blocking` decoration go first.
+Before deciding how to answer a point, check it against the actual code: is the reviewer right, partly right, or mistaken? Check them yourself, without subagents. Keep the reviewer's Conventional Comments labels when they used them; points from a CHANGES_REQUESTED review or with a `blocking` decoration go first.
 
 ## 2. Output
 
