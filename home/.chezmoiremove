@@ -14,3 +14,5 @@
 .claude/agents/doc-sync-reviewer.md
 .claude/agents/naming-style-reviewer.md
 .claude/agents/go-reviewer.md
+.config/mise/default-npm-packages
+.config/mise/default-python-packages

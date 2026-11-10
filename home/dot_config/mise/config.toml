@@ -1,7 +1,5 @@
 [tools]
 terraform = 'latest'
-node = 'lts'
-python = 'latest'
 ruby = 'latest'
 go = 'latest'
 rust = 'latest'
@@ -30,9 +28,19 @@ pinact = "latest"
 "github:charmbracelet/vhs" = "latest"
 "github:koh-sh/wsrctl" = { version = "latest", minimum_release_age = "0d" }
 
-[env]
-MISE_PYTHON_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-python-packages'
-MISE_NODE_DEFAULT_PACKAGES_FILE = '~/.config/mise/default-npm-packages'
+[tools.node]
+version = 'lts'
+postinstall = '''
+npm install -g \
+  @commitlint/cli \
+  @commitlint/config-conventional \
+  secretlint \
+  @secretlint/secretlint-rule-preset-recommend
+'''
+
+[tools.python]
+version = 'latest'
+postinstall = 'python -m pip install ipython boto3'
 
 [settings]
 idiomatic_version_file_enable_tools = [
@@ -44,7 +52,6 @@ idiomatic_version_file_enable_tools = [
 ]
 experimental = true
 minimum_release_age = "3d"
-idiomatic_version_file_ignore_minimum_versions = true
 
 [settings.python]
 compile = false
