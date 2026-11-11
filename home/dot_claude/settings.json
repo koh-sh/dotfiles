@@ -95,7 +95,6 @@
       "Bash(xmrig *)",
       "Bash(cryptominer *)",
       "Bash(coinhive *)",
-      "Bash(git -C *)",
       "Read(.env)",
       "Read(.env.*)",
       "Read(**/.env)",
