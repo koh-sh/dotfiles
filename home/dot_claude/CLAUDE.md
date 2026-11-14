@@ -83,6 +83,14 @@ This section takes precedence over these Claude Code system prompt lines
 ## Git Workflow
 - Commit messages: Use Conventional Commits format
 - Keep each commit focused on a single concern; do not mix unrelated changes
+- In commit messages and PR descriptions, do not mention other issues, PRs
+  or commits (`#123`, `org/repo#123`, their URLs, commit SHAs) unless the
+  user asks: GitHub links each mention back from the issue or PR it points
+  to. This includes numbering your own items: write `item 3`, not `#3`
+- Do not put the evidence behind a change in commit messages or PR
+  descriptions when it comes from conversations, past sessions, memory or
+  local usage data (quotes, paraphrases, session ids, usage counts): it
+  would become public. Say what changed; keep that evidence in your reply
 - Never force push to main/master without explicit permission
 
 ## Safety Rules
