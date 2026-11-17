@@ -119,11 +119,9 @@ NSGlobalDomain = { NSQuitAlwaysKeepsWindows = true, AppleKeyboardUIMode = 2 }
 run = "killall Dock ControlCenter SystemUIServer || true"
 
 [tasks.bump]
-description = "Bump tools and packages"
+description = "Bump packages"
 run = """
-brew update && brew upgrade && brew upgrade --casks
+brew update && brew upgrade
 brew upgrade --cask wezterm@nightly --greedy-latest
 mise bootstrap packages upgrade --manager brew-cask --yes
-mise up
-claude update
 """
