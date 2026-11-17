@@ -59,6 +59,9 @@ compile = false
 [settings.self_update]
 auto = true
 
+[settings.tool_update]
+global_auto = true
+
 [bootstrap.packages]
 "brew:ccat" = "latest"
 "brew:chezmoi" = "latest"
