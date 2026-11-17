@@ -28,8 +28,8 @@ This rule exists because of a real incident: silent `--force` apply of unrelated
 
 Homebrew formulae, casks, Mac App Store apps and macOS `defaults` are declared
 in `home/dot_config/mise/config.toml` under `[bootstrap.packages]` and
-`[bootstrap.macos.*]`, and checked with `mise bootstrap packages status` /
-`mise bootstrap macos defaults status`.
+`[bootstrap.settings.macos.*]`, and checked with
+`mise bootstrap packages status` / `mise bootstrap macos defaults status`.
 
 - **Two-file split.** `config.toml` holds only entries wanted on every machine
   (private and work). Machine-specific entries live in

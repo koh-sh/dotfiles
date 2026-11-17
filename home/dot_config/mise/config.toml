@@ -94,15 +94,15 @@ auto = true
 "brew-cask:zed" = "latest"
 "brew-cask:zoom" = "latest"
 
-[bootstrap.macos.dock]
+[bootstrap.settings.macos.dock]
 autohide = true
 orientation = "left"
 tilesize = 16
 
-[bootstrap.macos.trackpad]
+[bootstrap.settings.macos.trackpad]
 tap_to_click = true
 
-[bootstrap.macos.defaults]
+[bootstrap.settings.macos.defaults]
 NSGlobalDomain = { NSQuitAlwaysKeepsWindows = true, AppleKeyboardUIMode = 2 }
 "com.apple.dock" = { showAppExposeGestureEnabled = true, showAppExposeGesture = 2 }
 "com.apple.menuextra.battery" = { ShowPercent = "YES" }
