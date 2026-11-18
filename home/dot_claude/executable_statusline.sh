@@ -39,7 +39,8 @@ else
 fi
 
 RESET_DISP="--"
-if [ -n "$FIVE_H_RESET" ]; then
+# Digits only: a field shifted by a stray separator must not reach arithmetic evaluation
+if [[ "$FIVE_H_RESET" =~ ^[0-9]+$ ]]; then
     DIFF=$((FIVE_H_RESET - $(date +%s)))
     if [ "$DIFF" -gt 0 ]; then
         H=$((DIFF / 3600))
