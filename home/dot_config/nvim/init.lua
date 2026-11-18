@@ -270,9 +270,9 @@ require("lazy").setup({
                   yaml = {
                     schemas = {
                       kubernetes = "*.yaml",
-                      ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-                      ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-                      ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                      ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                      ["https://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                      ["https://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
                     },
                   },
                 },
