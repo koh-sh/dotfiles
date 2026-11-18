@@ -10,5 +10,8 @@ CONFIG='{
   ]
 }'
 
-# check staged changes
-git diff --cached --name-only --diff-filter=d | xargs secretlint --secretlintrc <(echo "$CONFIG")
+# fail the hook when git diff itself fails, not only when secretlint finds something
+setopt pipe_fail
+
+# check staged changes: NUL-separated and after --, so any file name stays one path argument
+git diff --cached --name-only -z --diff-filter=d | xargs -0 secretlint --secretlintrc <(echo "$CONFIG") --
