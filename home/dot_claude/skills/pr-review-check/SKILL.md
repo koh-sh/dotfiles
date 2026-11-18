@@ -7,8 +7,8 @@ model: sonnet
 
 Each pass runs the two checks below. Both open their sessions the same way:
 
-- From the existing clone at ~/github/<repo>, create a worktree of the PR's latest head at ~/worktrees/<repo>/pr-<number> (update it if it already exists). If there is no clone, do not start anything; just report it.
-- Start the session with: wezterm cli spawn --cwd <worktree> -- env $(env | grep -o '^CLAUDE_CODE_[A-Z_]*' | sed 's/^/-u /') claude --model opus "<prompt>"
+- From the existing clone at ~/github/<repo>, create a worktree of the PR's latest head, fetched from the clone's remote for the PR's `<owner>/<repo>`, at ~/worktrees/<repo>/pr-<number> (update it if it already exists). If there is no clone, or none of its remotes points at the PR's `<owner>/<repo>`, do not start anything; just report it.
+- Start the session with: wezterm cli spawn --cwd <worktree> -- env $(env | grep -o '^CLAUDE_CODE_[A-Z_]*' | sed 's/^/-u /') claude --disallowedTools 'Skill(pr-review-check)' --model opus "<prompt>"
 ## 1. Review requests
 
 Check review requests with `gh search prs "user-review-requested:@me" --state=open <ORGS> --draft=false --updated=">=$(date -v-7d +%F)"`, replacing `<ORGS>` with one `--owner=<org>` per org in "$ARGUMENTS", and for each PR that was not there at the previous check (all of them on the first run), open a session with the prompt `/pr-review-request <PR URL>`.
@@ -59,5 +59,7 @@ Handle each listed PR whose newest review id was not already handled at a previo
 What a session does lives in the `pr-review-request` and `pr-review-back` skills, which the prompt invokes. They must be user-level skills (in ~/.claude/skills): a session's working directory is the PR's worktree in another repository, where this repository's project skills are not loaded.
 
 The spawned pane inherits this session's environment, so the `env -u` strips every `CLAUDE_CODE_*` variable to start the session as an independent one; otherwise it inherits `CLAUDE_CODE_CHILD_SESSION` and its transcript is not saved.
+
+`--disallowedTools 'Skill(pr-review-check)'` keeps a session from running this check itself and opening more sessions. It comes before `--model` because it takes several values and would otherwise swallow the prompt.
 
 This check runs on Sonnet (`model: sonnet`) while the sessions pin `--model opus`, so the session model never follows the loop's or the user's default model. Do not add `disable-model-invocation` here: it would stop the scheduled loop from running this skill.
