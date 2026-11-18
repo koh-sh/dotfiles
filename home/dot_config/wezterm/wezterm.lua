@@ -307,6 +307,22 @@ local function setup_pr_review_launcher(config)
         return string.format('printf \'%s [y/N] \'; read ans; if [ "$ans" = "y" ]; then %s; fi', question, cmd)
     end
 
+    -- True when one of the clone's remotes points at github.com/<owner>/<repo>,
+    -- so a same-named clone of another repository is never used
+    local function has_remote_for(repo_dir, owner, repo)
+        local success, remotes = wezterm.run_child_process { 'git', '-C', repo_dir, 'remote', '-v' }
+        if not success then
+            return false
+        end
+        local wanted = (owner .. '/' .. repo):lower()
+        for path in remotes:gmatch('github%.com[:/](%S+)') do
+            if path:lower():gsub('%.git$', '') == wanted then
+                return true
+            end
+        end
+        return false
+    end
+
     local pr_review_action = wezterm.action_callback(function(window, pane)
         local success, clipboard = wezterm.run_child_process { 'pbpaste' }
         if not success then
@@ -337,6 +353,11 @@ local function setup_pr_review_launcher(config)
                     owner, repo, repo_dir, repo_dir, checkout_cmd)
             )
         else
+            if not has_remote_for(repo_dir, owner, repo) then
+                window:toast_notification('wezterm',
+                    string.format('%s has no remote for %s/%s', repo_dir, owner, repo), nil, 3000)
+                return
+            end
             local _, status_out, _ = wezterm.run_child_process { 'git', '-C', repo_dir, 'status', '--porcelain' }
             if status_out and status_out ~= '' then
                 -- Dirty tree: show git status in the new tab and ask before stashing
