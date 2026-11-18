@@ -4,7 +4,7 @@
 
 ```bash
 xcode-select --install
-curl https://mise.run | sh
+curl -fsSL https://mise.run | sh
 mkdir -p ~/github
 ~/.local/bin/mise x chezmoi@latest -- chezmoi init koh-sh --source ~/github/dotfiles --apply
 ```
