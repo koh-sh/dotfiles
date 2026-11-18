@@ -40,7 +40,8 @@ npm install -g \
 
 [tools.python]
 version = 'latest'
-postinstall = 'python -m pip install ipython boto3'
+# -I keeps the working directory off sys.path, so a pip module there is never imported
+postinstall = 'python -I -m pip install ipython boto3'
 
 [settings]
 idiomatic_version_file_enable_tools = [
