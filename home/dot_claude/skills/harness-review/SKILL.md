@@ -1,7 +1,7 @@
 ---
 description: Review this project's Claude Code harness (CLAUDE.md, AGENTS.md, .claude/, .mcp.json) with Claude Code's own checks and with what the project's past sessions taught (domain knowledge and the user's preferences), then open one PR with the changes the user adopts. Run it after a Claude Code update, as the harness evolves, or after sessions worth learning from.
 disable-model-invocation: true
-allowed-tools: Bash(claude -p --permission-mode plan *) Bash(${CLAUDE_SKILL_DIR}/scripts/sessions.sh *)
+allowed-tools: Bash(claude -p --permission-mode plan "/doctor") Bash(claude -p --permission-mode plan "/doctor prompt-audit") Bash(claude -p --permission-mode plan "/fewer-permission-prompts") Bash(claude -p --permission-mode plan "/insights") Bash(${CLAUDE_SKILL_DIR}/scripts/sessions.sh *)
 ---
 
 # harness-review
@@ -25,7 +25,7 @@ Harness files, as the pathspec used by the git commands below:
 
 ## 2. Start the headless checks
 
-The model cannot invoke these commands itself, so run each in its own headless session. Start all of them in parallel with the Bash tool in the background (`run_in_background`), without redirecting their output:
+The model cannot invoke these commands itself, so run each in its own headless session. Start all of them in parallel with the Bash tool in the background (`run_in_background`), without redirecting their output. Run them exactly as written: `allowed-tools` approves these four command lines and nothing else, so keep it in step when the list changes.
 
 - `claude -p --permission-mode plan "/doctor"`: setup checkup, including unused skills, MCP servers and plugins against their context cost, slow hooks, and CLAUDE.md bloat
 - `claude -p --permission-mode plan "/doctor prompt-audit"`: outdated or conflicting instructions and references to missing files or commands
