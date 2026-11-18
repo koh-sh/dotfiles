@@ -1,5 +1,7 @@
 prefix=${XDG_DATA_HOME}/npm
 cache=${XDG_CACHE_HOME}/npm
 init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
+# keep in step with NPM_CONFIG_IGNORE_SCRIPTS / NPM_CONFIG_MIN_RELEASE_AGE in zsh/.zshrc,
+# which override these in the shell
 ignore-scripts=true
 min-release-age=7

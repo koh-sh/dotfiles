@@ -152,6 +152,11 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export PATH="$HOME/.local/bin:$PATH"
 
+# npm safety settings, mirrored from npmrc: npm ranks env above a project .npmrc,
+# so a checkout cannot turn them off (an explicit --ignore-scripts=false still can)
+export NPM_CONFIG_IGNORE_SCRIPTS=true
+export NPM_CONFIG_MIN_RELEASE_AGE=7
+
 # Initialize mise/fnox
 eval "$(mise activate zsh)"
 eval "$(fnox activate zsh)"
