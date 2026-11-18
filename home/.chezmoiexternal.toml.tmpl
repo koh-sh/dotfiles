@@ -1,7 +1,9 @@
 {{ if eq .chezmoi.os "darwin" }}
 [".config/hammerspoon/Spoons/FnMate.spoon"]
     type = "archive"
-    url = "https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip"
+    # Pinned to the last commit that changed the zip, with its checksum
+    url = "https://github.com/Hammerspoon/Spoons/raw/37dde0729eec6500c35a77f47cf6ee016d86fc6d/Spoons/FnMate.spoon.zip"
+    checksum.sha256 = "fe5f28e0cbc4af5cb651dfe3d318f3cfaeefe39b3882c3cb4aef159d2fce5cf8"
     stripComponents = 1
     exact = true
 {{ end -}}

@@ -7,7 +7,7 @@ local KEY_CODES = {
 }
 
 -- Load FnMate Spoon for function key handling
--- Download from: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip
+-- Installed by chezmoi from the pinned URL in .chezmoiexternal.toml.tmpl
 hs.loadSpoon("FnMate")
 
 -- Helper function to create a key press function
