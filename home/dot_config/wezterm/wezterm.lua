@@ -92,7 +92,8 @@ local function setup_key_bindings(config)
                 window:set_config_overrides(overrides)
             end),
         },
-        -- Paste with LF→CR conversion for lazysql (tview doesn't handle LF in bracketed paste)
+        -- Paste with LF→CR conversion for lazysql (tview doesn't handle LF in bracketed paste).
+        -- An end marker inside the clipboard text is dropped so the paste cannot end early.
         {
             key = 'v',
             mods = 'SUPER',
@@ -101,7 +102,7 @@ local function setup_key_bindings(config)
                 if process:match("lazysql$") then
                     local success, stdout = wezterm.run_child_process({ "pbpaste" })
                     if success then
-                        local text = stdout:gsub("\n", "\r")
+                        local text = stdout:gsub("\x1b%[201~", ""):gsub("\n", "\r")
                         window:perform_action(
                             act.SendString("\x1b[200~" .. text .. "\x1b[201~"),
                             pane
